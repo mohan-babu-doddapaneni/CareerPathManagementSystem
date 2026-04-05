@@ -16,6 +16,7 @@ from apps.skills.models import SkillGapReport, OccupationRole
 from apps.jobs.models import JobListing
 from apps.roadmap.models import CareerGoal, LearningStep
 from apps.courses.models import Course
+from apps.tracker.models import JobApplication
 
 
 def home(request):
@@ -154,13 +155,25 @@ def dashboard(request):
         matched.sort(key=lambda c: (-c.match_count, -(c.rating or 0)))
         top_courses = matched[:3]
 
+    # Tracker stats
+    tracker_stats = {'total': 0, 'interviews': 0, 'offers': 0}
+    try:
+        apps_qs = JobApplication.objects.filter(user=user)
+        tracker_stats = {
+            'total': apps_qs.count(),
+            'interviews': apps_qs.filter(status='interview').count(),
+            'offers': apps_qs.filter(status='offer').count(),
+        }
+    except Exception:
+        pass
+
     quick_actions = [
         {'icon': '📄', 'label': 'My Resume', 'url': reverse('core:resume')},
         {'icon': '💼', 'label': 'Job Board', 'url': reverse('core:jobs')},
+        {'icon': '📋', 'label': 'Tracker', 'url': reverse('core:tracker')},
         {'icon': '🗺️', 'label': 'Roadmap', 'url': reverse('core:roadmap')},
         {'icon': '📚', 'label': 'Courses', 'url': reverse('core:courses')},
         {'icon': '🤖', 'label': 'Career AI', 'url': reverse('core:prediction_form')},
-        {'icon': '📊', 'label': 'Skill Gap', 'url': reverse('core:analyse')},
     ]
 
     context = {
@@ -181,5 +194,6 @@ def dashboard(request):
         'pending_steps': pending_steps,
         'top_courses': top_courses,
         'quick_actions': quick_actions,
+        'tracker_stats': tracker_stats,
     }
     return render(request, 'core/dashboard.html', context)

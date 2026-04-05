@@ -72,6 +72,26 @@ def job_board(request):
         job.matched_skills = sorted(matched)[:6]
         job.missing_skills = sorted(missing)[:4]
 
+    now_dt = timezone.now()
+    for job in jobs_list:
+        # Ghost job detection: older than 30 days = stale
+        if job.expires_at:
+            days_left = (job.expires_at - now_dt).days
+            job.is_stale = days_left < 335  # seeded with +365, so < 335 means old
+        else:
+            job.is_stale = False
+
+        # Competition level based on match score distribution
+        if job.match_score >= 70:
+            job.competition = 'low'
+            job.competition_label = 'Great Match'
+        elif job.match_score >= 40:
+            job.competition = 'medium'
+            job.competition_label = 'Good Match'
+        else:
+            job.competition = 'high'
+            job.competition_label = 'Stretch'
+
     jobs_list.sort(key=lambda j: (j.match_score, j.salary_max or 0), reverse=True)
 
     paginator = Paginator(jobs_list, 12)
@@ -92,7 +112,7 @@ def job_board(request):
 
     locations = cache.get('job_locations')
     if not locations:
-        locations = list(JobListing.objects.filter(is_active=True).values_list('location', flat=True).distinct()[:30])
+        locations = list(JobListing.objects.filter(expires_at__gt=timezone.now()).values_list('location', flat=True).distinct()[:30])
         cache.set('job_locations', locations, 3600)
 
     return render(request, 'jobs/board.html', {

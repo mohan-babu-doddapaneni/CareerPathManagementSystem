@@ -34,6 +34,7 @@ LOCAL_APPS = [
     'apps.ml',
     'apps.roadmap',
     'apps.courses',
+    'apps.tracker',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

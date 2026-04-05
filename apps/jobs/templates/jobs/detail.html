@@ -37,6 +37,20 @@
         Apply Now &rarr;
       </a>
       {% endif %}
+      <form method="POST" action="{% url 'core:add_application' %}" class="inline">
+        {% csrf_token %}
+        <input type="hidden" name="job_title" value="{{ job.title }}">
+        <input type="hidden" name="company" value="{{ job.company }}">
+        <input type="hidden" name="location" value="{{ job.location|default:'' }}">
+        <input type="hidden" name="job_url" value="{{ job.redirect_url|default:'' }}">
+        <input type="hidden" name="status" value="saved">
+        <input type="hidden" name="job_listing_id" value="{{ job.pk }}">
+        <input type="hidden" name="salary_min" value="{{ job.salary_min|default:'' }}">
+        <input type="hidden" name="salary_max" value="{{ job.salary_max|default:'' }}">
+        <button type="submit" class="px-6 py-3 border border-brand-500 text-brand-600 font-semibold rounded-lg hover:bg-brand-50 transition-colors">
+          📋 Track Application
+        </button>
+      </form>
       <a href="{% url 'core:prediction_form' %}" class="px-6 py-3 border border-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors">
         Check Career Fit
       </a>

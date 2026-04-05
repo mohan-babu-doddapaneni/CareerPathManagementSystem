@@ -57,12 +57,13 @@
       <p class="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wide">Experience</p>
     </div>
     <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 text-center">
-      <p class="text-3xl font-extrabold text-gray-900">{{ edu_count|default:"0" }}</p>
-      <p class="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wide">Education</p>
-    </div>
-    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 text-center">
       <p class="text-3xl font-extrabold text-brand-600">{{ top_jobs|length }}</p>
       <p class="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wide">Job Matches</p>
+    </div>
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 text-center">
+      <p class="text-3xl font-extrabold text-purple-600">{{ tracker_stats.total|default:"0" }}</p>
+      <p class="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wide">Tracked</p>
+      <a href="{% url 'core:tracker' %}" class="text-xs text-brand-500 hover:underline mt-1 block">View Tracker</a>
     </div>
   </div>
 

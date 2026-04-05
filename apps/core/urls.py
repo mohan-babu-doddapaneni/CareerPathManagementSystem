@@ -7,6 +7,7 @@ from apps.jobs import views as job_views
 from apps.ml import views as ml_views
 from apps.roadmap import views as roadmap_views
 from apps.courses import views as course_views
+from apps.tracker import views as tracker_views
 
 app_name = 'core'
 
@@ -54,4 +55,10 @@ urlpatterns = [
 
     # Courses
     path('courses/', course_views.recommended_courses, name='courses'),
+
+    # Tracker
+    path('tracker/', tracker_views.tracker_board, name='tracker'),
+    path('tracker/add/', tracker_views.add_application, name='add_application'),
+    path('tracker/<int:pk>/update/', tracker_views.update_application, name='update_application'),
+    path('tracker/<int:pk>/delete/', tracker_views.delete_application, name='delete_application'),
 ]
