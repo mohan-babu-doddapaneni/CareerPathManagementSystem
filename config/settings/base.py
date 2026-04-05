@@ -32,6 +32,8 @@ LOCAL_APPS = [
     'apps.skills',
     'apps.jobs',
     'apps.ml',
+    'apps.roadmap',
+    'apps.courses',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -117,3 +119,16 @@ ADZUNA_APP_KEY = os.environ.get('ADZUNA_APP_KEY', '')
 
 # Data directory
 DATA_DIR = BASE_DIR / 'data'
+
+# Cache — Redis (override URL in production settings)
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': os.environ.get('REDIS_URL', 'redis://127.0.0.1:6379/1'),
+        'TIMEOUT': 300,  # 5 minutes default
+        'OPTIONS': {
+            'max_entries': 5000,
+        },
+    }
+}
+CACHE_MIDDLEWARE_SECONDS = 300

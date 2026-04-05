@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 from .models import TrainedModel, ModelPerformance, JobDataset
-from .classifier import predict, ALGORITHM_MAP
+from .classifier import predict, train_model, ALGORITHM_MAP
 
 
 @login_required
@@ -73,7 +73,6 @@ def train_model_view(request, algorithm):
         return redirect('core:ml_dashboard')
 
     try:
-        from .classifier import train_model
         _, metrics = train_model(algorithm)
         messages.success(
             request,

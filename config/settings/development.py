@@ -37,3 +37,16 @@ MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+# Use LocMemCache if Redis unavailable in dev
+import subprocess, sys
+try:
+    import redis as _r
+    _r.Redis().ping()
+except Exception:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'careerpath-dev',
+        }
+    }

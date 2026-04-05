@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.core.cache import cache
 from .models import OccupationRole, RequiredSkill, SkillGapReport
 from collections import defaultdict
 
@@ -14,7 +15,10 @@ def _get_user_skills(user):
 
 @login_required
 def analyse_page(request):
-    roles = OccupationRole.objects.all()
+    roles = cache.get('occupation_roles_list')
+    if not roles:
+        roles = list(OccupationRole.objects.all())
+        cache.set('occupation_roles_list', roles, 3600)
     reports = SkillGapReport.objects.filter(user=request.user).select_related('role')
     return render(request, 'skills/analyse.html', {'roles': roles, 'reports': reports})
 
@@ -66,17 +70,30 @@ def gap_analysis(request):
 
 @login_required
 def predict_role(request):
-    user_skills = _get_user_skills(request.user)
-    roles = OccupationRole.objects.prefetch_related('required_skills')
-    scores = {}
+    cache_key = f'predict_role_{request.user.id}'
+    cached = cache.get(cache_key)
+    if cached:
+        return render(request, 'skills/predict_role.html', cached)
 
-    for role in roles:
-        req = set(s.name.lower() for s in role.required_skills.filter(category='technical'))
+    user_skills = _get_user_skills(request.user)
+
+    # One query for all technical skills grouped by role
+    tech_skills = RequiredSkill.objects.filter(category='technical').values('role_id', 'name')
+    role_skills_map = defaultdict(set)
+    for s in tech_skills:
+        role_skills_map[s['role_id']].add(s['name'].lower())
+
+    role_names = {r.id: r.name for r in OccupationRole.objects.all()}
+
+    scores = {}
+    for role_id, req in role_skills_map.items():
         if not req:
             continue
         matches = len(user_skills & req)
-        scores[role.name] = round((matches / len(req)) * 100, 1)
+        scores[role_names[role_id]] = round((matches / len(req)) * 100, 1)
 
     scores = dict(sorted(scores.items(), key=lambda x: x[1], reverse=True))
     best = next(iter(scores), None)
-    return render(request, 'skills/predict_role.html', {'scores': scores, 'best': best})
+    ctx = {'scores': scores, 'best': best}
+    cache.set(cache_key, ctx, 600)  # 10 min
+    return render(request, 'skills/predict_role.html', ctx)

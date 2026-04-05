@@ -1,11 +1,18 @@
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
-from django.utils import timezone
-from .models import JobListing
-from .adzuna import AdzunaClient
-from apps.skills.models import OccupationRole
 import logging
+
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
+from django.core.paginator import Paginator
+from django.db.models import Q
+from django.http import JsonResponse
+from django.shortcuts import render, get_object_or_404
+from django.utils import timezone
+
+from apps.core.models import UserActivity
+from apps.skills.models import OccupationRole
+from .adzuna import AdzunaClient
+from .models import JobListing
 
 logger = logging.getLogger(__name__)
 
@@ -13,10 +20,9 @@ logger = logging.getLogger(__name__)
 def _try_adzuna_refresh(role):
     """Silently try to fetch fresh jobs from Adzuna. Never raises."""
     try:
-        from django.conf import settings
+        from datetime import timedelta
         if not getattr(settings, 'ADZUNA_APP_ID', '') or not getattr(settings, 'ADZUNA_APP_KEY', ''):
             return  # API keys not configured, skip silently
-        from datetime import timedelta
         client = AdzunaClient()
         results = client.search(what=role.name, country='gb', results=20)
         if not results:
@@ -36,7 +42,6 @@ def _try_adzuna_refresh(role):
 
 @login_required
 def job_board(request):
-    from apps.core.models import UserActivity
     query = request.GET.get('q', '').strip()
     location_filter = request.GET.get('location', '').strip()
 
@@ -50,14 +55,13 @@ def job_board(request):
 
     jobs_qs = JobListing.objects.filter(expires_at__gt=timezone.now())
     if query:
-        from django.db.models import Q
         jobs_qs = jobs_qs.filter(
             Q(title__icontains=query) | Q(company__icontains=query) | Q(description__icontains=query)
         )
     if location_filter:
         jobs_qs = jobs_qs.filter(location__icontains=location_filter)
 
-    jobs_list = list(jobs_qs.select_related('matched_role')[:200])
+    jobs_list = list(jobs_qs.select_related('matched_role')[:100])
 
     for job in jobs_list:
         # skill_tags is a JSONField (list)
@@ -69,6 +73,10 @@ def job_board(request):
         job.missing_skills = sorted(missing)[:4]
 
     jobs_list.sort(key=lambda j: (j.match_score, j.salary_max or 0), reverse=True)
+
+    paginator = Paginator(jobs_list, 12)
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
 
     # Log activity
     if query or location_filter:
@@ -82,15 +90,14 @@ def job_board(request):
         except Exception:
             pass
 
-    locations = (
-        JobListing.objects
-        .filter(expires_at__gt=timezone.now())
-        .values_list('location', flat=True)
-        .distinct()[:30]
-    )
+    locations = cache.get('job_locations')
+    if not locations:
+        locations = list(JobListing.objects.filter(is_active=True).values_list('location', flat=True).distinct()[:30])
+        cache.set('job_locations', locations, 3600)
 
     return render(request, 'jobs/board.html', {
-        'jobs': jobs_list,
+        'jobs': page_obj,
+        'page_obj': page_obj,
         'query': query,
         'location_filter': location_filter,
         'locations': [loc for loc in locations if loc],
@@ -101,7 +108,6 @@ def job_board(request):
 
 @login_required
 def job_detail(request, pk):
-    from apps.core.models import UserActivity
     job = get_object_or_404(JobListing, pk=pk, expires_at__gt=timezone.now())
 
     user_skills = set()
@@ -146,7 +152,6 @@ def job_search_api(request):
 
     jobs = JobListing.objects.filter(expires_at__gt=timezone.now())
     if q:
-        from django.db.models import Q
         jobs = jobs.filter(Q(title__icontains=q) | Q(company__icontains=q) | Q(location__icontains=q))
     if role_id:
         jobs = jobs.filter(matched_role_id=role_id)

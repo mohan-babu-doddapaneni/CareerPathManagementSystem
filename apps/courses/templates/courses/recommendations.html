@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}Course Recommendations{% endblock %}
+{% block breadcrumb %}Courses{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-900">Recommended Courses</h1>
+      <p class="text-sm text-gray-500 mt-1">Curated for your skill gaps — free resources first</p>
+    </div>
+    <a href="{% url 'core:set_goal' %}" class="text-sm text-brand-500 hover:underline">Set Career Goal →</a>
+  </div>
+
+  <!-- Skill Gap Tags -->
+  {% if missing_skills %}
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
+    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Skills to develop</p>
+    <div class="flex flex-wrap gap-2">
+      {% for skill in missing_skills %}
+      <span class="px-3 py-1 bg-brand-50 text-brand-700 text-xs font-medium rounded-full">{{ skill }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Filters -->
+  <form method="GET" class="flex gap-3 flex-wrap">
+    <select name="platform" onchange="this.form.submit()"
+            class="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+      <option value="">All Platforms</option>
+      {% for p in platforms %}
+      <option value="{{ p }}" {% if p == filter_platform %}selected{% endif %}>{{ p|title }}</option>
+      {% endfor %}
+    </select>
+    <label class="flex items-center gap-2 px-3 py-2 border border-gray-200 rounded-lg text-sm cursor-pointer hover:bg-gray-50">
+      <input type="checkbox" name="free" value="1" {% if filter_free == '1' %}checked{% endif %} onchange="this.form.submit()">
+      Free only
+    </label>
+    {% if filter_platform or filter_free %}
+    <a href="{% url 'core:courses' %}" class="px-3 py-2 text-sm text-gray-500 hover:text-gray-700">Clear</a>
+    {% endif %}
+  </form>
+
+  <!-- Course Cards -->
+  {% if courses %}
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {% for course in courses %}
+    <a href="{{ course.url }}" target="_blank" rel="noopener noreferrer"
+       class="group block bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all p-5">
+
+      <!-- Platform Badge -->
+      <div class="flex items-start justify-between mb-3">
+        <span class="px-2.5 py-1 text-xs font-bold rounded-full
+          {% if course.platform == 'coursera' %}bg-blue-100 text-blue-700
+          {% elif course.platform == 'youtube' or course.platform == 'freecodecamp' %}bg-red-100 text-red-700
+          {% elif course.platform == 'udemy' %}bg-purple-100 text-purple-700
+          {% elif course.platform == 'kaggle' %}bg-cyan-100 text-cyan-700
+          {% elif course.platform == 'google' %}bg-yellow-100 text-yellow-700
+          {% elif course.platform == 'microsoft' %}bg-sky-100 text-sky-700
+          {% else %}bg-gray-100 text-gray-600{% endif %}">
+          {{ course.get_platform_display }}
+        </span>
+        <span class="text-xs font-semibold {% if course.is_free %}text-green-600{% else %}text-gray-400{% endif %}">
+          {% if course.is_free %}FREE{% else %}Paid{% endif %}
+        </span>
+      </div>
+
+      <!-- Title -->
+      <h3 class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors mb-2 line-clamp-2">
+        {{ course.title }}
+      </h3>
+
+      <!-- Meta -->
+      <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+        {% if course.rating %}<span>&#11088; {{ course.rating }}</span>{% endif %}
+        {% if course.duration_hours %}<span>&#128336; {{ course.duration_hours }}h</span>{% endif %}
+        <span class="capitalize">{{ course.difficulty }}</span>
+      </div>
+
+      <!-- Matched Skills -->
+      <div class="flex flex-wrap gap-1">
+        {% for skill in course.matched_skills %}
+        <span class="px-2 py-0.5 bg-green-50 text-green-700 rounded text-xs font-medium">&#10003; {{ skill }}</span>
+        {% endfor %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-12 text-center">
+    <div class="text-5xl mb-4">&#128218;</div>
+    <p class="text-gray-500 mb-2">
+      {% if not missing_skills %}
+        Upload your resume or set a career goal to get personalised recommendations.
+      {% else %}
+        No courses matched the current filters.
+      {% endif %}
+    </p>
+    <a href="{% url 'core:resume' %}" class="text-brand-500 text-sm hover:underline">Upload Resume →</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -5,6 +5,8 @@ from apps.resumes import views as resume_views
 from apps.skills import views as skill_views
 from apps.jobs import views as job_views
 from apps.ml import views as ml_views
+from apps.roadmap import views as roadmap_views
+from apps.courses import views as course_views
 
 app_name = 'core'
 
@@ -44,4 +46,12 @@ urlpatterns = [
     path('ml/', ml_views.ml_dashboard, name='ml_dashboard'),
     path('ml/predict/', ml_views.prediction_form, name='prediction_form'),
     path('ml/train/<str:algorithm>/', ml_views.train_model_view, name='train_model'),
+
+    # Roadmap
+    path('roadmap/', roadmap_views.roadmap, name='roadmap'),
+    path('roadmap/goal/', roadmap_views.set_goal, name='set_goal'),
+    path('roadmap/step/<int:pk>/update/', roadmap_views.update_step, name='update_step'),
+
+    # Courses
+    path('courses/', course_views.recommended_courses, name='courses'),
 ]

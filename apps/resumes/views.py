@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.cache import cache
 from django.utils import timezone
 from django.http import JsonResponse
 from .models import Resume, ParsedSkill, ParsedEducation, ParsedExperience, ParsedCertification
@@ -12,7 +13,9 @@ ALLOWED_EXTENSIONS = ('.pdf', '.docx', '.doc')
 @login_required
 def resume_page(request):
     try:
-        resume = request.user.resume
+        resume = Resume.objects.select_related('user').prefetch_related(
+            'skills', 'education', 'experiences', 'certifications'
+        ).get(user=request.user)
     except Resume.DoesNotExist:
         resume = None
     return render(request, 'resumes/resume.html', {'resume': resume})
@@ -58,24 +61,34 @@ def upload_resume(request):
         parsed_at=timezone.now(),
     )
 
-    # Skills
-    for name in parsed.get('skills', []):
-        ParsedSkill.objects.get_or_create(resume=resume, name=name,
-                                          defaults={'source': 'parsed'})
+    # Skills — get_or_create needed to avoid duplicates; bulk where possible
+    skill_names = parsed.get('skills', [])
+    existing_skills = set(
+        ParsedSkill.objects.filter(resume=resume, name__in=skill_names).values_list('name', flat=True)
+    )
+    ParsedSkill.objects.bulk_create(
+        [ParsedSkill(resume=resume, name=name, source='parsed')
+         for name in skill_names if name not in existing_skills],
+        ignore_conflicts=True,
+    )
 
-    # Education
-    for edu in parsed.get('education', []):
-        ParsedEducation.objects.create(
+    # Education — no uniqueness constraint, safe to bulk_create
+    edu_objs = [
+        ParsedEducation(
             resume=resume,
             degree=edu.get('degree', ''),
             institution=edu.get('institution', ''),
             year=edu.get('year', ''),
             source='parsed',
         )
+        for edu in parsed.get('education', [])
+    ]
+    if edu_objs:
+        ParsedEducation.objects.bulk_create(edu_objs)
 
-    # Experience
-    for exp in parsed.get('experience', []):
-        ParsedExperience.objects.create(
+    # Experience — no uniqueness constraint, safe to bulk_create
+    exp_objs = [
+        ParsedExperience(
             resume=resume,
             job_title=exp.get('title', ''),
             company=exp.get('company', ''),
@@ -83,18 +96,27 @@ def upload_resume(request):
             years=exp.get('years', 0),
             source='parsed',
         )
+        for exp in parsed.get('experience', [])
+    ]
+    if exp_objs:
+        ParsedExperience.objects.bulk_create(exp_objs)
 
-    # Certifications
-    for cert in parsed.get('certifications', []):
-        ParsedCertification.objects.get_or_create(
+    # Certifications — get_or_create semantics; bulk with ignore_conflicts
+    cert_list = parsed.get('certifications', [])
+    cert_names = [cert.get('name', '') for cert in cert_list]
+    existing_certs = set(
+        ParsedCertification.objects.filter(resume=resume, name__in=cert_names).values_list('name', flat=True)
+    )
+    ParsedCertification.objects.bulk_create(
+        [ParsedCertification(
             resume=resume,
             name=cert.get('name', ''),
-            defaults={
-                'issuer': cert.get('issuer', ''),
-                'year': cert.get('year', ''),
-                'source': 'parsed',
-            },
-        )
+            issuer=cert.get('issuer', ''),
+            year=cert.get('year', ''),
+            source='parsed',
+        ) for cert in cert_list if cert.get('name', '') not in existing_certs],
+        ignore_conflicts=True,
+    )
 
     skill_count = len(parsed.get('skills', []))
     cert_count = len(parsed.get('certifications', []))
@@ -111,6 +133,9 @@ def upload_resume(request):
     if parsed.get('phone') and not request.user.profile.phone:
         request.user.profile.phone = parsed['phone']
         request.user.profile.save()
+
+    # Invalidate the user's role prediction cache so it reflects the new resume
+    cache.delete(f'predict_role_{request.user.id}')
 
     return redirect('core:resume')
 

@@ -1,6 +1,21 @@
-from django.shortcuts import render
+import datetime
+
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count
+from django.db.models.functions import TruncDate
+from django.utils import timezone
+from django.core.cache import cache
+from django.urls import reverse
+
+from apps.resumes.models import Resume, ParsedSkill
+from apps.core.models import UserActivity
+from apps.skills.models import SkillGapReport, OccupationRole
+from apps.jobs.models import JobListing
+from apps.roadmap.models import CareerGoal, LearningStep
+from apps.courses.models import Course
 
 
 def home(request):
@@ -14,15 +29,12 @@ def health(request):
 @login_required
 def admin_dashboard(request):
     if not request.user.is_staff:
-        from django.shortcuts import redirect
         return redirect('core:dashboard')
 
-    from apps.resumes.models import Resume, ParsedSkill
-    from apps.core.models import UserActivity
-    from django.contrib.auth import get_user_model
-    from django.db.models import Count
-    from django.utils import timezone
-    import datetime
+    cache_key = 'admin_dashboard_stats'
+    cached = cache.get(cache_key)
+    if cached:
+        return render(request, 'core/admin_dashboard.html', cached)
 
     User = get_user_model()
 
@@ -49,34 +61,36 @@ def admin_dashboard(request):
     # Recent signups
     recent_users = User.objects.order_by('-date_joined')[:10]
 
-    # Daily activity for chart (last 7 days)
-    daily_activity = []
-    for i in range(6, -1, -1):
-        day = now - datetime.timedelta(days=i)
-        count = UserActivity.objects.filter(
-            created_at__date=day.date()
-        ).count()
-        daily_activity.append({'date': day.strftime('%b %d'), 'count': count})
+    # Daily activity for chart (last 7 days) — single aggregation query
+    daily_qs = (UserActivity.objects
+                .filter(created_at__date__gte=(now - datetime.timedelta(days=7)).date())
+                .annotate(day=TruncDate('created_at'))
+                .values('day')
+                .annotate(count=Count('id')))
+    daily_map = {row['day']: row['count'] for row in daily_qs}
+    daily_activity = [
+        {'date': (now - datetime.timedelta(days=i)).strftime('%b %d'),
+         'count': daily_map.get((now - datetime.timedelta(days=i)).date(), 0)}
+        for i in range(6, -1, -1)
+    ]
 
-    return render(request, 'core/admin_dashboard.html', {
+    ctx = {
         'total_users': total_users,
         'total_resumes': total_resumes,
         'recent_signups': recent_signups,
         'total_activities': total_activities,
-        'top_skills': top_skills,
-        'recent_activity': recent_activity,
-        'action_counts': action_counts,
-        'recent_users': recent_users,
+        'top_skills': list(top_skills),
+        'recent_activity': list(recent_activity),
+        'action_counts': list(action_counts),
+        'recent_users': list(recent_users),
         'daily_activity': daily_activity,
-    })
+    }
+    cache.set(cache_key, ctx, 300)  # cache 5 min
+    return render(request, 'core/admin_dashboard.html', ctx)
 
 
 @login_required
 def dashboard(request):
-    from apps.skills.models import SkillGapReport, OccupationRole
-    from apps.jobs.models import JobListing
-    from django.utils import timezone
-
     user = request.user
     profile = user.profile
     gap_reports = SkillGapReport.objects.filter(user=user).select_related('role')[:3]
@@ -114,16 +128,40 @@ def dashboard(request):
 
     job_count = JobListing.objects.filter(expires_at__gt=timezone.now()).count()
 
-    # Recent activity count
-    recent_activity_count = 0
+    # Career Goal / Roadmap
+    goal = None
+    goal_completion = 0
+    pending_steps = []
     try:
-        from apps.core.models import UserActivity
-        from django.utils import timezone as tz
-        import datetime
-        week_ago = tz.now() - datetime.timedelta(days=7)
-        recent_activity_count = UserActivity.objects.filter(user=user, created_at__gte=week_ago).count()
-    except Exception:
+        goal = CareerGoal.objects.select_related('target_role').get(user=user, status='active')
+        goal_completion = goal.completion_pct()
+        pending_steps = list(goal.steps.filter(status__in=['pending', 'learning'])[:5])
+    except CareerGoal.DoesNotExist:
         pass
+
+    # Top 3 course recommendations from skill gap
+    top_courses = []
+    if pending_steps:
+        missing = {s.skill_name.lower() for s in pending_steps}
+        all_courses = cache.get('all_courses_list') or list(Course.objects.all())
+        matched = []
+        for c in all_courses:
+            tags = c.skill_list()
+            hits = [t for t in tags if t in missing]
+            if hits:
+                c.match_count = len(hits)
+                matched.append(c)
+        matched.sort(key=lambda c: (-c.match_count, -(c.rating or 0)))
+        top_courses = matched[:3]
+
+    quick_actions = [
+        {'icon': '📄', 'label': 'My Resume', 'url': reverse('core:resume')},
+        {'icon': '💼', 'label': 'Job Board', 'url': reverse('core:jobs')},
+        {'icon': '🗺️', 'label': 'Roadmap', 'url': reverse('core:roadmap')},
+        {'icon': '📚', 'label': 'Courses', 'url': reverse('core:courses')},
+        {'icon': '🤖', 'label': 'Career AI', 'url': reverse('core:prediction_form')},
+        {'icon': '📊', 'label': 'Skill Gap', 'url': reverse('core:analyse')},
+    ]
 
     context = {
         'profile': profile,
@@ -131,11 +169,17 @@ def dashboard(request):
         'roles': roles,
         'job_count': job_count,
         'skill_count': skill_count,
+        'exp_count': experience_count,
+        'edu_count': education_count,
         'experience_count': experience_count,
         'education_count': education_count,
         'has_resume': has_resume,
         'top_jobs': top_jobs,
         'user_skills': user_skills,
-        'recent_activity_count': recent_activity_count,
+        'goal': goal,
+        'goal_completion': goal_completion,
+        'pending_steps': pending_steps,
+        'top_courses': top_courses,
+        'quick_actions': quick_actions,
     }
     return render(request, 'core/dashboard.html', context)
