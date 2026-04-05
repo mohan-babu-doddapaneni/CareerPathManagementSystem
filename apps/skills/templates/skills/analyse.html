@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block title %}Skill Gap Analysis{% endblock %}
+{% block breadcrumb %}Skill Gap Analysis{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl space-y-6"
+     x-data="{
+       roleId: '',
+       loading: false,
+       result: null,
+       async analyse() {
+         if (!this.roleId) return;
+         this.loading = true;
+         this.result = null;
+         const res = await fetch('/api/skills/gap/?role_id=' + this.roleId);
+         this.result = await res.json();
+         this.loading = false;
+       }
+     }">
+
+  <h1 class="text-2xl font-bold text-gray-900">Skill Gap Analysis</h1>
+
+  <!-- Role selector -->
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+    <label class="block text-sm font-medium text-gray-700 mb-2">Select a career role to analyse</label>
+    <div class="flex gap-3">
+      <select x-model="roleId"
+              class="flex-1 px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+        <option value="">-- Choose a role --</option>
+        {% for role in roles %}
+        <option value="{{ role.pk }}">{{ role.name }}</option>
+        {% endfor %}
+      </select>
+      <button @click="analyse()" :disabled="!roleId || loading"
+              class="px-6 py-2.5 bg-brand-500 hover:bg-brand-600 disabled:opacity-50 text-white font-semibold rounded-lg text-sm transition-colors">
+        <span x-show="!loading">Analyse</span>
+        <span x-show="loading" x-cloak>Analysing…</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div x-show="result" x-cloak class="space-y-6">
+
+    <!-- Match score -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-semibold text-gray-900" x-text="'Match score for ' + result?.role"></h2>
+        <span class="text-2xl font-extrabold"
+              :class="result?.match_percentage >= 70 ? 'text-green-600' : result?.match_percentage >= 40 ? 'text-yellow-600' : 'text-red-500'"
+              x-text="result?.match_percentage + '%'"></span>
+      </div>
+      <div class="bg-gray-100 rounded-full h-4 overflow-hidden">
+        <div class="h-4 rounded-full transition-all duration-700"
+             :class="result?.match_percentage >= 70 ? 'bg-green-500' : result?.match_percentage >= 40 ? 'bg-yellow-400' : 'bg-red-400'"
+             :style="'width:' + result?.match_percentage + '%'"></div>
+      </div>
+      <div class="flex justify-between text-xs text-gray-400 mt-1">
+        <span>0%</span><span>50%</span><span>100%</span>
+      </div>
+    </div>
+
+    <!-- Skills grid -->
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Matched skills -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <h3 class="font-semibold text-green-700 mb-3 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          You have (<span x-text="result?.matched?.length"></span>)
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <template x-for="skill in result?.matched" :key="skill">
+            <span class="px-2.5 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full" x-text="skill"></span>
+          </template>
+          <span x-show="result?.matched?.length === 0" class="text-sm text-gray-400">None matched yet.</span>
+        </div>
+      </div>
+
+      <!-- Missing skills -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <h3 class="font-semibold text-red-600 mb-3 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+          Still needed (<span x-text="result?.missing?.length"></span>)
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <template x-for="skill in result?.missing" :key="skill">
+            <span class="px-2.5 py-1 bg-red-100 text-red-600 text-xs font-medium rounded-full" x-text="skill"></span>
+          </template>
+          <span x-show="result?.missing?.length === 0" class="text-sm text-gray-400">Nothing missing!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6" x-show="result?.certifications?.length > 0">
+      <h3 class="font-semibold text-gray-800 mb-3">Recommended Certifications</h3>
+      <div class="flex flex-wrap gap-2">
+        <template x-for="cert in result?.certifications" :key="cert">
+          <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-full" x-text="cert"></span>
+        </template>
+      </div>
+    </div>
+
+    <!-- Advanced concepts -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6" x-show="result?.advanced?.length > 0">
+      <h3 class="font-semibold text-gray-800 mb-3">Advanced Concepts to Learn</h3>
+      <div class="flex flex-wrap gap-2">
+        <template x-for="adv in result?.advanced" :key="adv">
+          <span class="px-2.5 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded-full" x-text="adv"></span>
+        </template>
+      </div>
+    </div>
+  </div>
+
+  <!-- Past reports -->
+  {% if reports %}
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+    <h2 class="font-semibold text-gray-800 mb-4">Past Analyses</h2>
+    <div class="space-y-3">
+      {% for r in reports %}
+      <div class="flex items-center justify-between">
+        <span class="text-sm font-medium text-gray-700">{{ r.role.name }}</span>
+        <div class="flex items-center gap-3">
+          <div class="w-32 bg-gray-100 rounded-full h-2">
+            <div class="h-2 rounded-full {% if r.match_percentage >= 70 %}bg-green-500{% elif r.match_percentage >= 40 %}bg-yellow-400{% else %}bg-red-400{% endif %}"
+                 style="width:{{ r.match_percentage }}%"></div>
+          </div>
+          <span class="text-sm font-bold {% if r.match_percentage >= 70 %}text-green-600{% elif r.match_percentage >= 40 %}text-yellow-600{% else %}text-red-500{% endif %}">
+            {{ r.match_percentage|floatformat:0 }}%
+          </span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

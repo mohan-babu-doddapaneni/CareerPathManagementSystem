@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Career Prediction{% endblock %}
+{% block breadcrumb %}Career Prediction{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl space-y-6">
+  <h1 class="text-2xl font-bold text-gray-900">Career Role Prediction</h1>
+  <p class="text-gray-500 text-sm">Based on your resume skills, here's how well you match each career path.</p>
+
+  {% if best %}
+  <div class="bg-gradient-to-r from-brand-500 to-brand-700 rounded-2xl p-6 text-white">
+    <p class="text-sm font-medium opacity-80 mb-1">Best match for you</p>
+    <p class="text-3xl font-extrabold">{{ best }}</p>
+    <p class="text-sm opacity-70 mt-1">{{ scores|dictsort:0|last|last }}% skill match</p>
+  </div>
+
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+    <h2 class="font-semibold text-gray-800 mb-5">All Role Matches</h2>
+    <div class="space-y-4">
+      {% for role, pct in scores.items %}
+      <div>
+        <div class="flex justify-between text-sm mb-1">
+          <span class="font-medium text-gray-700">{{ role }}</span>
+          <span class="font-bold {% if pct >= 70 %}text-green-600{% elif pct >= 40 %}text-yellow-600{% else %}text-red-500{% endif %}">
+            {{ pct }}%
+          </span>
+        </div>
+        <div class="bg-gray-100 rounded-full h-2.5">
+          <div class="h-2.5 rounded-full transition-all duration-700
+                      {% if pct >= 70 %}bg-green-500{% elif pct >= 40 %}bg-yellow-400{% else %}bg-red-400{% endif %}"
+               style="width: {{ pct }}%"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="flex gap-3">
+    <a href="{% url 'core:analyse' %}"
+       class="px-5 py-2.5 bg-brand-500 text-white text-sm font-semibold rounded-lg hover:bg-brand-600 transition-colors">
+      Analyse skill gaps for {{ best }}
+    </a>
+    <a href="{% url 'core:jobs' %}"
+       class="px-5 py-2.5 border border-gray-300 text-gray-700 text-sm font-semibold rounded-lg hover:bg-gray-50 transition-colors">
+      Browse matching jobs
+    </a>
+  </div>
+
+  {% else %}
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-12 text-center">
+    <svg class="w-12 h-12 mx-auto text-gray-200 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+    </svg>
+    <p class="text-gray-500 mb-4">No skills found. Upload your resume first.</p>
+    <a href="{% url 'core:resume' %}"
+       class="px-5 py-2.5 bg-brand-500 text-white text-sm font-semibold rounded-lg hover:bg-brand-600 transition-colors">
+      Upload resume
+    </a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

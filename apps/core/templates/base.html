@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Career Path — AI-powered career guidance and job recommendations">
+  <title>{% block title %}Career Path{% endblock %} | CareerPath AI</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#e0e9ff',
+              500: '#4f6ef7',
+              600: '#3b56e8',
+              700: '#2c43d4',
+              900: '#1a2b8c',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    [x-cloak] { display: none !important; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+  </style>
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="h-full bg-gray-50 text-gray-900 antialiased">
+
+<!-- Authenticated layout: sidebar + main -->
+<div class="flex h-full min-h-screen" x-data="{ sidebarOpen: false }">
+
+  <!-- Mobile overlay -->
+  <div x-show="sidebarOpen" x-cloak
+       @click="sidebarOpen = false"
+       class="fixed inset-0 bg-black/50 z-20 lg:hidden"></div>
+
+  <!-- Sidebar -->
+  {% include "components/sidebar.html" %}
+
+  <!-- Main content area -->
+  <div class="flex-1 flex flex-col min-w-0">
+    <!-- Top bar -->
+    <header class="bg-white border-b border-gray-200 h-16 flex items-center px-4 lg:px-8 gap-4 sticky top-0 z-10">
+      <button @click="sidebarOpen = true"
+              class="lg:hidden p-2 rounded-lg text-gray-500 hover:bg-gray-100">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <div class="flex-1">
+        <p class="text-sm text-gray-500">{% block breadcrumb %}Dashboard{% endblock %}</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="hidden sm:block text-sm font-medium text-gray-700">{{ user.get_full_name|default:user.email }}</span>
+        <div class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+          {% if user.first_name %}{{ user.first_name|first|upper }}{% else %}{{ user.email|first|upper }}{% endif %}
+        </div>
+      </div>
+    </header>
+
+    <!-- Page content -->
+    <main class="flex-1 p-4 lg:p-8 overflow-auto">
+      {% include "components/messages.html" %}
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</div>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>

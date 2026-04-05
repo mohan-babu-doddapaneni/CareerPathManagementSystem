@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block title %}Admin Analytics{% endblock %}
+{% block breadcrumb %}Admin Analytics{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900">Admin Analytics</h1>
+    <p class="text-sm text-gray-500 mt-1">Platform overview and user insights</p>
+  </div>
+
+  <!-- Stats Row -->
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+      <p class="text-xs font-medium text-gray-400 uppercase tracking-wide">Total Users</p>
+      <p class="text-3xl font-extrabold text-gray-900 mt-1">{{ total_users }}</p>
+    </div>
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+      <p class="text-xs font-medium text-gray-400 uppercase tracking-wide">Resumes</p>
+      <p class="text-3xl font-extrabold text-gray-900 mt-1">{{ total_resumes }}</p>
+    </div>
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+      <p class="text-xs font-medium text-gray-400 uppercase tracking-wide">New This Week</p>
+      <p class="text-3xl font-extrabold text-brand-600 mt-1">{{ recent_signups }}</p>
+    </div>
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+      <p class="text-xs font-medium text-gray-400 uppercase tracking-wide">Total Actions</p>
+      <p class="text-3xl font-extrabold text-gray-900 mt-1">{{ total_activities }}</p>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-3 gap-6">
+    <!-- Activity Chart -->
+    <div class="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+      <h2 class="font-semibold text-gray-800 mb-4">Daily Activity (Last 7 Days)</h2>
+      <canvas id="activityChart" height="200"></canvas>
+    </div>
+
+    <!-- Top Skills -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+      <h2 class="font-semibold text-gray-800 mb-4">Top Skills in Demand</h2>
+      <div class="space-y-3">
+        {% for skill in top_skills %}
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="font-medium text-gray-700">{{ skill.name }}</span>
+            <span class="text-gray-400">{{ skill.count }}</span>
+          </div>
+          <div class="w-full bg-gray-100 rounded-full h-1.5">
+            {% if top_skills.0.count > 0 %}
+            <div class="bg-brand-500 h-1.5 rounded-full" style="width: {% widthratio skill.count top_skills.0.count 100 %}%"></div>
+            {% endif %}
+          </div>
+        </div>
+        {% empty %}
+        <p class="text-sm text-gray-400">No skill data yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-6">
+    <!-- Action Breakdown -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+      <h2 class="font-semibold text-gray-800 mb-4">Activity Breakdown</h2>
+      <div class="space-y-2">
+        {% for ac in action_counts %}
+        <div class="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
+          <span class="text-sm text-gray-700 capitalize">{{ ac.action }}</span>
+          <span class="text-sm font-bold text-brand-600">{{ ac.count }}</span>
+        </div>
+        {% empty %}
+        <p class="text-sm text-gray-400">No activity recorded yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Recent Users -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+      <h2 class="font-semibold text-gray-800 mb-4">Recent Signups</h2>
+      <div class="space-y-3">
+        {% for u in recent_users %}
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center flex-shrink-0">
+            <span class="text-brand-600 text-xs font-bold">{{ u.first_name|first|upper }}{{ u.last_name|first|upper }}</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-gray-900 truncate">{{ u.get_full_name|default:u.email }}</p>
+            <p class="text-xs text-gray-400">Joined {{ u.date_joined|timesince }} ago</p>
+          </div>
+          {% if u.is_staff %}<span class="text-xs bg-purple-100 text-purple-600 px-2 py-0.5 rounded-full">Staff</span>{% endif %}
+        </div>
+        {% empty %}
+        <p class="text-sm text-gray-400">No users yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Activity Feed -->
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+    <h2 class="font-semibold text-gray-800 mb-4">Live Activity Feed</h2>
+    <div class="space-y-3 max-h-80 overflow-y-auto">
+      {% for act in recent_activity %}
+      <div class="flex items-start gap-3 py-2 border-b border-gray-50 last:border-0">
+        <div class="w-2 h-2 rounded-full bg-brand-400 mt-2 flex-shrink-0"></div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm text-gray-700">
+            <span class="font-medium">{{ act.user.get_full_name|default:act.user.email }}</span>
+            <span class="text-gray-400"> &ndash; {{ act.get_action_display }}</span>
+            {% if act.detail %}<span class="text-gray-400 text-xs"> ({{ act.detail }})</span>{% endif %}
+          </p>
+          <p class="text-xs text-gray-400 mt-0.5">{{ act.created_at|timesince }} ago</p>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-sm text-gray-400">No activity recorded yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('activityChart').getContext('2d');
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: [{% for d in daily_activity %}'{{ d.date }}',{% endfor %}],
+    datasets: [{
+      label: 'Actions',
+      data: [{% for d in daily_activity %}{{ d.count }},{% endfor %}],
+      borderColor: '#4f6ef7',
+      backgroundColor: 'rgba(79,110,247,0.08)',
+      borderWidth: 2,
+      pointRadius: 4,
+      pointBackgroundColor: '#4f6ef7',
+      fill: true,
+      tension: 0.4,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#f1f5f9' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+</script>
+{% endblock %}

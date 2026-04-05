@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}Job Board{% endblock %}
+{% block breadcrumb %}Job Board{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+  <!-- Header -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-900">Jobs For You</h1>
+      <p class="text-sm text-gray-500 mt-0.5">
+        {% if has_resume %}Ranked by match with your skills{% else %}Upload your resume to see personalized matches{% endif %}
+      </p>
+    </div>
+    {% if not has_resume %}
+    <a href="{% url 'core:resume' %}" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-500 text-white text-sm font-semibold rounded-lg hover:bg-brand-600 transition-colors">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+      Upload Resume
+    </a>
+    {% endif %}
+  </div>
+
+  <!-- Search & Filter -->
+  <form method="GET" class="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
+    <div class="flex flex-col sm:flex-row gap-3">
+      <div class="relative flex-1">
+        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" name="q" value="{{ query }}" placeholder="Search jobs, skills, roles…"
+               class="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+      </div>
+      <select name="location" class="px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+        <option value="">All Locations</option>
+        {% for loc in locations %}
+        <option value="{{ loc }}" {% if loc == location_filter %}selected{% endif %}>{{ loc }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit" class="px-5 py-2.5 bg-brand-500 text-white text-sm font-semibold rounded-lg hover:bg-brand-600 transition-colors">Search</button>
+      {% if query or location_filter %}
+      <a href="{% url 'core:jobs' %}" class="px-5 py-2.5 border border-gray-200 text-gray-600 text-sm font-medium rounded-lg hover:bg-gray-50 transition-colors">Clear</a>
+      {% endif %}
+    </div>
+  </form>
+
+  <!-- Job Count -->
+  <p class="text-sm text-gray-500">{{ jobs|length }} position{{ jobs|length|pluralize }} found</p>
+
+  <!-- Job Cards -->
+  {% if jobs %}
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {% for job in jobs %}
+    <a href="{% url 'core:job_detail' job.pk %}" class="group block bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-200 transition-all p-5">
+      <!-- Header -->
+      <div class="flex items-start justify-between mb-3">
+        <div class="flex-1 min-w-0">
+          <p class="font-bold text-gray-900 group-hover:text-brand-600 transition-colors truncate">{{ job.title }}</p>
+          <p class="text-sm text-gray-500 mt-0.5 truncate">{{ job.company }}{% if job.location %} &middot; {{ job.location }}{% endif %}</p>
+        </div>
+        {% if has_resume %}
+        <span class="ml-3 flex-shrink-0 px-2.5 py-1 rounded-full text-xs font-bold
+          {% if job.match_score >= 70 %}bg-green-100 text-green-700
+          {% elif job.match_score >= 40 %}bg-yellow-100 text-yellow-700
+          {% else %}bg-gray-100 text-gray-500{% endif %}">
+          {{ job.match_score }}%
+        </span>
+        {% endif %}
+      </div>
+
+      <!-- Salary -->
+      {% if job.salary_min or job.salary_max %}
+      <p class="text-sm font-semibold text-green-600 mb-3">
+        ${% if job.salary_min %}{{ job.salary_min|floatformat:0 }}{% endif %}{% if job.salary_min and job.salary_max %} &ndash; {% endif %}{% if job.salary_max %}{{ job.salary_max|floatformat:0 }}{% endif %} USD/yr
+      </p>
+      {% endif %}
+
+      <!-- Matched Skills -->
+      {% if has_resume and job.matched_skills %}
+      <div class="flex flex-wrap gap-1 mb-2">
+        {% for skill in job.matched_skills %}
+        <span class="px-2 py-0.5 bg-green-50 text-green-700 rounded text-xs font-medium">&#10003; {{ skill }}</span>
+        {% endfor %}
+        {% for skill in job.missing_skills %}
+        <span class="px-2 py-0.5 bg-gray-50 text-gray-400 rounded text-xs">{{ skill }}</span>
+        {% endfor %}
+      </div>
+      {% elif job.skill_tags %}
+      <div class="flex flex-wrap gap-1 mb-2">
+        {% for tag in job.skill_tags|slice:":5" %}
+        <span class="px-2 py-0.5 bg-brand-50 text-brand-600 rounded text-xs">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Category -->
+      {% if job.category %}
+      <div class="mt-3 pt-3 border-t border-gray-50">
+        <span class="text-xs text-gray-400 uppercase tracking-wide">{{ job.category }}</span>
+      </div>
+      {% endif %}
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-12 text-center">
+    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <svg class="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+    </div>
+    <p class="text-gray-500 mb-2">No jobs found matching your search.</p>
+    <a href="{% url 'core:jobs' %}" class="text-brand-500 text-sm hover:underline">Clear filters</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

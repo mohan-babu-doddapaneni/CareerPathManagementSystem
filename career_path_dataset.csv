@@ -1,0 +1,521 @@
+Job_ID,Skills,Years_of_Experience,Predicted_Job_Title,Company_Name,Company_Location,Industry,Salary (USD),Education_Level
+JOB0001,"Kubernetes, Excel, Node.js, JavaScript",11,Technical Lead,Capgemini,New York,Healthcare,156000,BTech
+JOB0002,"CSS, AWS, Docker, Node.js, Tableau, Django",5,Full Stack Developer,Accenture,Boston,Education,122000,"BTech, Masters"
+JOB0003,"Tableau, Node.js, HTML, Excel",10,Lead DevOps Engineer,Microsoft,Austin,Finance,194000,Masters
+JOB0004,"Django, JavaScript, Data Analysis, Node.js, Kubernetes, Java",5,Senior Software Engineer,Facebook,New York,Telecom,138000,BTech
+JOB0005,"Power BI, Flask, Python",8,Lead DevOps Engineer,Amazon,San Francisco,E-commerce,180000,"Masters, BTech"
+JOB0006,"Node.js, C++, Docker, AWS",1,AI Engineer,Accenture,Berlin,Telecom,73000,BTech
+JOB0007,"CSS, React, Flask, SQL, HTML, AWS",14,Business Intelligence Analyst,Google,New York,Finance,174000,BTech
+JOB0008,"Node.js, Tableau, HTML",10,Senior Web Developer,Microsoft,Boston,Finance,183000,"Masters, BTech"
+JOB0009,"Node.js, HTML, Django, SQL, CSS",3,Technical Lead,IBM,San Francisco,Finance,86000,"Masters, BTech"
+JOB0010,"Node.js, Excel, CSS, Power BI, C++",2,Senior Software Engineer,Cognizant,Austin,Finance,108000,Diploma
+JOB0011,"Flask, AWS, React, Django, Tableau",10,Full Stack Developer,Accenture,Austin,Telecom,156000,Diploma
+JOB0012,"SQL, Python, AWS, Django, Data Analysis, CSS",2,Business Intelligence Analyst,Accenture,Austin,E-commerce,62000,BTech
+JOB0013,"Node.js, HTML, CSS, JavaScript",3,Full Stack Developer,Accenture,Seattle,IT,96000,"Masters, BTech"
+JOB0014,"Excel, Node.js, Java, JavaScript, Machine Learning, AWS",7,Lead DevOps Engineer,Accenture,Seattle,Finance,148000,Diploma
+JOB0015,"C++, Flask, JavaScript",9,Technical Lead,Amazon,New York,Finance,164000,"BTech, Masters"
+JOB0016,"Kubernetes, Tableau, CSS",1,Senior Software Engineer,IBM,Seattle,Finance,60000,"BTech, Masters"
+JOB0017,"Data Analysis, Django, Flask",2,Technical Lead,Cognizant,New York,Healthcare,74000,"Masters, BTech"
+JOB0018,"AWS, HTML, Docker, SQL, Excel",2,Data Engineer,IBM,Boston,Finance,91000,Diploma
+JOB0019,"Tableau, Node.js, AWS",6,Full Stack Developer,Accenture,Berlin,IT,111000,"Masters, BTech"
+JOB0020,"JavaScript, Java, Docker",2,Lead DevOps Engineer,Microsoft,New York,Healthcare,87000,"BTech, Masters"
+JOB0021,"Django, Python, Java, Node.js, React",2,Business Intelligence Analyst,Capgemini,Seattle,Finance,102000,BTech
+JOB0022,"SQL, HTML, CSS, Flask, Data Analysis",14,Technical Lead,Google,San Francisco,Finance,172000,"Masters, BTech"
+JOB0023,"Python, Java, Django, Tableau, SQL",4,Full Stack Developer,IBM,London,IT,109000,Diploma
+JOB0024,"C++, CSS, SQL, Machine Learning, React, Kubernetes",4,Full Stack Developer,Amazon,London,E-commerce,109000,"Masters, BTech"
+JOB0025,"Kubernetes, Power BI, Flask, JavaScript",14,AI Engineer,Amazon,New York,E-commerce,198000,BTech
+JOB0026,"Data Analysis, Kubernetes, Docker, AWS",9,Senior Software Engineer,Microsoft,Seattle,Telecom,178000,BTech
+JOB0027,"CSS, Data Analysis, Power BI",13,Data Engineer,Facebook,New York,Education,191000,"Masters, BTech"
+JOB0028,"Kubernetes, Python, Tableau, JavaScript, Machine Learning, SQL",11,Data Engineer,IBM,Austin,Telecom,158000,Diploma
+JOB0029,"Machine Learning, Python, Tableau, Java, Kubernetes",2,Technical Lead,Infosys,New York,E-commerce,81000,BTech
+JOB0030,"Flask, Docker, JavaScript, Power BI, Data Analysis",3,Senior Web Developer,Cognizant,San Francisco,Education,80000,Diploma
+JOB0031,"Python, CSS, Machine Learning",14,Senior Web Developer,Infosys,Austin,E-commerce,173000,BTech
+JOB0032,"React, Power BI, Python, Node.js, AWS, Machine Learning",6,Business Intelligence Analyst,Capgemini,New York,IT,128000,"Masters, BTech"
+JOB0033,"C++, Flask, AWS, SQL, Power BI",3,Business Intelligence Analyst,Amazon,New York,Healthcare,105000,"Masters, BTech"
+JOB0034,"Python, React, AWS, Kubernetes, Machine Learning",9,Full Stack Developer,Accenture,Boston,Education,184000,"Masters, BTech"
+JOB0035,"Data Analysis, JavaScript, React, Docker, Flask, Java",10,Data Engineer,Capgemini,Chicago,Education,161000,"BTech, Masters"
+JOB0036,"Machine Learning, C++, Kubernetes, Power BI",13,Full Stack Developer,Accenture,New York,Telecom,165000,"Masters, BTech"
+JOB0037,"Node.js, SQL, HTML",3,Lead DevOps Engineer,Facebook,New York,IT,91000,Diploma
+JOB0038,"Docker, Data Analysis, Django, Flask",2,Business Intelligence Analyst,Capgemini,Berlin,Telecom,80000,"BTech, Masters"
+JOB0039,"Node.js, Kubernetes, Power BI, Tableau",2,Lead DevOps Engineer,IBM,Chicago,Healthcare,63000,BTech
+JOB0040,"Flask, Kubernetes, Power BI",9,Data Engineer,Accenture,London,Telecom,177000,"Masters, BTech"
+JOB0041,"SQL, C++, Excel, Tableau, Machine Learning, Flask",3,AI Engineer,Capgemini,Boston,Telecom,61000,Diploma
+JOB0042,"Excel, Docker, Python, Data Analysis, Kubernetes, C++",13,Business Intelligence Analyst,Amazon,Boston,Finance,170000,"BTech, Masters"
+JOB0043,"Django, HTML, Kubernetes, Docker, Tableau",6,Senior Software Engineer,Accenture,New York,Education,139000,"BTech, Masters"
+JOB0044,"Power BI, Excel, Flask",12,Technical Lead,Capgemini,Boston,IT,199000,"Masters, BTech"
+JOB0045,"CSS, Node.js, Kubernetes, Data Analysis",7,Business Intelligence Analyst,Amazon,Berlin,Healthcare,142000,"BTech, Masters"
+JOB0046,"React, CSS, SQL, AWS, Excel",2,AI Engineer,Google,Austin,Healthcare,68000,"Masters, BTech"
+JOB0047,"React, Node.js, Tableau, Data Analysis",10,Senior Web Developer,Amazon,Chicago,Healthcare,170000,"Masters, BTech"
+JOB0048,"Docker, Flask, SQL, Tableau, Node.js",6,Senior Web Developer,Microsoft,Seattle,Telecom,137000,Diploma
+JOB0049,"Flask, React, JavaScript",7,AI Engineer,Amazon,San Francisco,Education,120000,"Masters, BTech"
+JOB0050,"Machine Learning, SQL, CSS, C++, Data Analysis, Docker",3,Lead DevOps Engineer,Accenture,London,Finance,89000,"Masters, BTech"
+JOB0051,"C++, Excel, Python",12,AI Engineer,Facebook,San Francisco,Healthcare,165000,"Masters, BTech"
+JOB0052,"Power BI, AWS, Data Analysis, JavaScript, Flask, Node.js",9,Full Stack Developer,Google,Austin,Education,175000,Diploma
+JOB0053,"Java, Power BI, Flask",2,Technical Lead,Cognizant,Boston,E-commerce,73000,"Masters, BTech"
+JOB0054,"Tableau, C++, SQL, JavaScript, Node.js",7,Data Engineer,Capgemini,Chicago,Healthcare,148000,BTech
+JOB0055,"Flask, SQL, CSS, C++, Node.js",3,Senior Web Developer,Infosys,Seattle,Healthcare,109000,"BTech, Masters"
+JOB0056,"Data Analysis, SQL, Java",9,Data Engineer,Cognizant,San Francisco,IT,173000,BTech
+JOB0057,"Docker, Flask, CSS",13,Senior Web Developer,IBM,San Francisco,Finance,160000,Diploma
+JOB0058,"Tableau, HTML, CSS, Kubernetes",11,Senior Software Engineer,Cognizant,San Francisco,Finance,183000,"BTech, Masters"
+JOB0059,"C++, JavaScript, AWS, Java",12,Technical Lead,Cognizant,San Francisco,Telecom,159000,"Masters, BTech"
+JOB0060,"Python, Machine Learning, C++",11,Full Stack Developer,Accenture,San Francisco,E-commerce,168000,"BTech, Masters"
+JOB0061,"Data Analysis, Excel, SQL, React",9,Technical Lead,Infosys,Boston,Healthcare,155000,BTech
+JOB0062,"Tableau, Django, JavaScript",9,Lead DevOps Engineer,Cognizant,New York,Education,151000,BTech
+JOB0063,"Power BI, Tableau, Docker, AWS",15,Full Stack Developer,Accenture,Boston,E-commerce,150000,"Masters, BTech"
+JOB0064,"SQL, Node.js, Python, JavaScript",12,Data Engineer,Facebook,Berlin,Healthcare,167000,Diploma
+JOB0065,"C++, Data Analysis, React, Java",8,Lead DevOps Engineer,Amazon,Chicago,IT,182000,"Masters, BTech"
+JOB0066,"Machine Learning, Python, AWS, Excel, C++, Node.js",2,AI Engineer,Google,San Francisco,E-commerce,88000,Diploma
+JOB0067,"Docker, Excel, Tableau, Power BI, Machine Learning",3,Senior Software Engineer,Facebook,New York,IT,89000,BTech
+JOB0068,"Django, Machine Learning, C++, HTML, Power BI, AWS",8,Full Stack Developer,Google,Berlin,IT,179000,BTech
+JOB0069,"JavaScript, C++, AWS, CSS, Java, Tableau",2,Lead DevOps Engineer,Infosys,Chicago,Education,79000,"BTech, Masters"
+JOB0070,"Docker, Tableau, Flask, React, SQL, Node.js",12,Business Intelligence Analyst,Accenture,Boston,Telecom,162000,Diploma
+JOB0071,"Machine Learning, Node.js, Kubernetes, Power BI, React, Docker",10,Full Stack Developer,Accenture,New York,Telecom,191000,BTech
+JOB0072,"Excel, Java, JavaScript, HTML, Machine Learning, Python",2,Business Intelligence Analyst,Infosys,Boston,Telecom,103000,"Masters, BTech"
+JOB0073,"C++, Machine Learning, Django, Tableau",9,Full Stack Developer,Google,San Francisco,Telecom,193000,BTech
+JOB0074,"Node.js, C++, AWS, Data Analysis, JavaScript, Python",8,Senior Web Developer,Amazon,Berlin,Telecom,173000,Diploma
+JOB0075,"Data Analysis, Flask, Power BI, Tableau, HTML",15,Business Intelligence Analyst,Microsoft,Boston,IT,179000,"BTech, Masters"
+JOB0076,"SQL, Docker, Java, Excel, Django, React",11,Data Engineer,Microsoft,Chicago,Healthcare,159000,Diploma
+JOB0077,"Django, Node.js, C++, Excel, CSS",1,Senior Software Engineer,IBM,London,E-commerce,74000,"Masters, BTech"
+JOB0078,"Machine Learning, AWS, React, Java, Data Analysis",13,Full Stack Developer,Accenture,New York,Telecom,190000,"BTech, Masters"
+JOB0079,"Kubernetes, CSS, Java, AWS, Power BI",2,Business Intelligence Analyst,IBM,Chicago,Education,101000,"BTech, Masters"
+JOB0080,"Django, Node.js, JavaScript, Excel, React",13,Business Intelligence Analyst,Cognizant,San Francisco,E-commerce,194000,BTech
+JOB0081,"React, Machine Learning, HTML, Data Analysis",15,Senior Web Developer,Cognizant,Seattle,Education,190000,Diploma
+JOB0082,"Python, Data Analysis, HTML",7,Data Engineer,Facebook,Boston,Healthcare,145000,"BTech, Masters"
+JOB0083,"AWS, Python, HTML, SQL",2,AI Engineer,Accenture,New York,IT,72000,"Masters, BTech"
+JOB0084,"Python, SQL, Java, Power BI, HTML, Tableau",15,AI Engineer,Cognizant,Boston,E-commerce,163000,BTech
+JOB0085,"Excel, HTML, SQL, Flask, JavaScript",12,Full Stack Developer,Google,San Francisco,E-commerce,192000,"BTech, Masters"
+JOB0086,"Excel, C++, Machine Learning, CSS, JavaScript, Power BI",5,Business Intelligence Analyst,Capgemini,New York,Healthcare,116000,Diploma
+JOB0087,"Django, Flask, Docker, Power BI, Kubernetes, CSS",3,Lead DevOps Engineer,Accenture,Austin,Healthcare,89000,"BTech, Masters"
+JOB0088,"Docker, SQL, Kubernetes, Tableau",5,Full Stack Developer,Amazon,New York,IT,114000,Diploma
+JOB0089,"Docker, Excel, CSS, C++, Data Analysis, HTML",9,Senior Software Engineer,Capgemini,Chicago,IT,169000,Diploma
+JOB0090,"Docker, Django, Kubernetes, Machine Learning, Tableau, Java",4,AI Engineer,Capgemini,New York,Education,93000,BTech
+JOB0091,"JavaScript, Power BI, CSS, Kubernetes, Java",10,Data Engineer,Accenture,Austin,IT,157000,BTech
+JOB0092,"Docker, Excel, Django",15,Data Engineer,Amazon,Berlin,Telecom,186000,BTech
+JOB0093,"Excel, Node.js, Kubernetes, Python",1,AI Engineer,Accenture,New York,Healthcare,62000,Diploma
+JOB0094,"Flask, Data Analysis, Java, Power BI",2,Technical Lead,Cognizant,San Francisco,Finance,81000,"BTech, Masters"
+JOB0095,"AWS, Django, Node.js",5,Business Intelligence Analyst,Accenture,New York,Healthcare,114000,Diploma
+JOB0096,"C++, Node.js, Java, SQL, Machine Learning, Power BI",7,Data Engineer,Google,Seattle,Healthcare,144000,BTech
+JOB0097,"Java, Docker, Power BI",5,Business Intelligence Analyst,Accenture,Berlin,E-commerce,138000,"BTech, Masters"
+JOB0098,"Power BI, C++, Excel, JavaScript, HTML",10,Senior Web Developer,Microsoft,New York,Healthcare,185000,BTech
+JOB0099,"Kubernetes, Power BI, Tableau, JavaScript, Java",13,Full Stack Developer,Amazon,San Francisco,IT,172000,"BTech, Masters"
+JOB0100,"Kubernetes, Python, CSS, React, Node.js",8,Technical Lead,Infosys,New York,IT,196000,"Masters, BTech"
+JOB0101,"Power BI, React, JavaScript",6,Business Intelligence Analyst,IBM,San Francisco,IT,143000,Diploma
+JOB0102,"Django, Docker, React, CSS, Excel, HTML",8,Senior Software Engineer,Infosys,London,IT,197000,Diploma
+JOB0103,"Docker, Data Analysis, Python, Django, Flask",4,Senior Web Developer,Amazon,New York,Telecom,97000,"Masters, BTech"
+JOB0104,"React, Java, Flask",13,Full Stack Developer,Infosys,Boston,Telecom,176000,BTech
+JOB0105,"CSS, Tableau, Data Analysis, React, HTML, Node.js",6,Senior Software Engineer,Amazon,San Francisco,Telecom,136000,"Masters, BTech"
+JOB0106,"Power BI, Java, Excel, Python",4,Lead DevOps Engineer,Accenture,Berlin,Finance,103000,Diploma
+JOB0107,"JavaScript, Node.js, Excel, Docker",3,Full Stack Developer,Amazon,Boston,Education,86000,"Masters, BTech"
+JOB0108,"AWS, Docker, Java, JavaScript",14,Business Intelligence Analyst,Google,Berlin,Finance,199000,"Masters, BTech"
+JOB0109,"Machine Learning, HTML, Excel, Flask, React",1,Data Engineer,Cognizant,New York,Healthcare,67000,Diploma
+JOB0110,"Django, JavaScript, Python, Node.js, Docker",4,Technical Lead,Infosys,San Francisco,Healthcare,87000,Diploma
+JOB0111,"Power BI, Python, Tableau",5,Full Stack Developer,Accenture,Austin,Telecom,132000,"Masters, BTech"
+JOB0112,"Java, C++, CSS, Python, Data Analysis",3,Senior Software Engineer,Accenture,Berlin,IT,90000,Diploma
+JOB0113,"Power BI, Flask, Python, Kubernetes",7,AI Engineer,IBM,San Francisco,IT,125000,"Masters, BTech"
+JOB0114,"C++, Node.js, SQL, Tableau, AWS",9,Full Stack Developer,Amazon,Berlin,Healthcare,185000,BTech
+JOB0115,"Power BI, Kubernetes, Node.js, JavaScript, Java, CSS",2,Lead DevOps Engineer,Google,Seattle,Healthcare,106000,"BTech, Masters"
+JOB0116,"SQL, Excel, Tableau, CSS, Node.js",10,Lead DevOps Engineer,Microsoft,Seattle,Telecom,184000,"Masters, BTech"
+JOB0117,"Kubernetes, Docker, Python, Excel",11,AI Engineer,Microsoft,Austin,Finance,169000,"BTech, Masters"
+JOB0118,"Flask, JavaScript, Tableau, Kubernetes, Python",14,Senior Software Engineer,Cognizant,London,E-commerce,183000,Diploma
+JOB0119,"C++, Flask, CSS, Excel, Data Analysis, Python",6,Full Stack Developer,Google,New York,Finance,128000,"BTech, Masters"
+JOB0120,"SQL, Data Analysis, AWS",1,Technical Lead,Cognizant,Seattle,Education,73000,"BTech, Masters"
+JOB0121,"Docker, Node.js, Java, Excel, SQL",3,Senior Software Engineer,Accenture,London,Finance,88000,Diploma
+JOB0122,"Node.js, Django, JavaScript, Power BI, Kubernetes, React",10,Full Stack Developer,Microsoft,New York,Education,190000,"Masters, BTech"
+JOB0123,"C++, JavaScript, Python, AWS, Tableau",13,Senior Software Engineer,Cognizant,Berlin,Telecom,194000,"BTech, Masters"
+JOB0124,"Java, JavaScript, Flask, AWS",12,Data Engineer,Cognizant,San Francisco,IT,199000,"BTech, Masters"
+JOB0125,"Machine Learning, Python, SQL, AWS",2,Full Stack Developer,IBM,Seattle,Healthcare,61000,Diploma
+JOB0126,"Power BI, SQL, Flask, Node.js, Machine Learning, Tableau",12,AI Engineer,Infosys,Berlin,Education,181000,"Masters, BTech"
+JOB0127,"Tableau, Docker, HTML, Kubernetes, Power BI",6,Senior Software Engineer,Google,New York,E-commerce,121000,"BTech, Masters"
+JOB0128,"SQL, JavaScript, Power BI, Python, Django",2,Technical Lead,Accenture,San Francisco,Finance,71000,"BTech, Masters"
+JOB0129,"Python, React, Django, HTML, Java",11,Data Engineer,Google,London,E-commerce,172000,Diploma
+JOB0130,"React, CSS, Java, SQL, HTML, Javascript, Java",4,Full Stack Developer,Capgemini,Seattle,Telecom,87000,"Masters, BTech"
+JOB0131,"C++, Java, Flask, Power BI, Kubernetes, Machine Learning",12,Lead DevOps Engineer,Accenture,San Francisco,Telecom,167000,Diploma
+JOB0132,"Excel, AWS, Machine Learning",5,Full Stack Developer,Accenture,Boston,Telecom,132000,BTech
+JOB0133,"Machine Learning, Python, Docker, CSS, JavaScript, Java",3,Lead DevOps Engineer,Google,Chicago,IT,104000,"Masters, BTech"
+JOB0134,"Java, React, SQL, Excel, Django, Node.js",3,Senior Software Engineer,Google,Chicago,Telecom,107000,"BTech, Masters"
+JOB0135,"Excel, JavaScript, Django, Java, AWS, C++",3,Senior Software Engineer,Capgemini,San Francisco,Telecom,109000,BTech
+JOB0136,"Node.js, Java, Django, Machine Learning",4,Business Intelligence Analyst,IBM,Chicago,IT,101000,"Masters, BTech"
+JOB0137,"Django, Flask, Excel, C++, Kubernetes, Docker",1,Senior Web Developer,Capgemini,New York,E-commerce,67000,"Masters, BTech"
+JOB0138,"Excel, Java, Node.js",14,Senior Software Engineer,Google,Boston,Finance,171000,"Masters, BTech"
+JOB0139,"Docker, C++, JavaScript",5,Business Intelligence Analyst,Microsoft,Seattle,E-commerce,142000,"BTech, Masters"
+JOB0140,"SQL, Excel, Data Analysis, Python, AWS, Docker",7,Full Stack Developer,Accenture,Seattle,E-commerce,127000,"BTech, Masters"
+JOB0141,"React, Java, Power BI, AWS",15,Technical Lead,Google,San Francisco,IT,164000,Diploma
+JOB0142,"Excel, Java, Machine Learning, Docker",8,Data Engineer,Cognizant,Austin,Finance,172000,BTech
+JOB0143,"C++, Kubernetes, JavaScript, Excel, Python, SQL",8,Senior Software Engineer,Amazon,Boston,Finance,181000,BTech
+JOB0144,"Kubernetes, React, SQL, Data Analysis",12,Technical Lead,Accenture,Boston,E-commerce,191000,"BTech, Masters"
+JOB0145,"AWS, React, Power BI, Machine Learning, Node.js",12,Business Intelligence Analyst,Infosys,London,Education,172000,"BTech, Masters"
+JOB0146,"JavaScript, React, Machine Learning",1,Full Stack Developer,Cognizant,Berlin,Finance,69000,BTech
+JOB0147,"SQL, HTML, Django",14,AI Engineer,Infosys,San Francisco,Education,160000,Diploma
+JOB0148,"C++, React, Machine Learning, SQL",9,Senior Software Engineer,Amazon,Seattle,Healthcare,163000,"BTech, Masters"
+JOB0149,"React, AWS, Excel, SQL, C++",10,Full Stack Developer,Amazon,Austin,IT,171000,"Masters, BTech"
+JOB0150,"C++, Python, Django",3,Data Engineer,Accenture,Boston,E-commerce,87000,Diploma
+JOB0151,"AWS, Java, Kubernetes, Python",1,Technical Lead,Google,San Francisco,E-commerce,62000,"Masters, BTech"
+JOB0152,"Java, JavaScript, Python, Node.js",3,Senior Web Developer,Amazon,New York,Education,107000,"Masters, BTech"
+JOB0153,"React, C++, Kubernetes, Data Analysis, Flask",1,AI Engineer,Accenture,New York,Finance,63000,"Masters, BTech"
+JOB0154,"Java, HTML, Tableau, Docker, CSS, React",5,Full Stack Developer,Accenture,Chicago,IT,131000,"Masters, BTech"
+JOB0155,"HTML, C++, AWS, Power BI, JavaScript",15,Senior Web Developer,Capgemini,New York,Education,166000,BTech
+JOB0156,"HTML, Tableau, Python, Machine Learning, JavaScript",3,Technical Lead,Amazon,San Francisco,Healthcare,98000,"BTech, Masters"
+JOB0157,"CSS, Excel, Java, AWS, Django, Machine Learning",4,Senior Web Developer,Capgemini,New York,IT,82000,"Masters, BTech"
+JOB0158,"Python, Django, AWS",1,Full Stack Developer,Accenture,Austin,Finance,69000,BTech
+JOB0159,"Excel, Java, Power BI, SQL, Machine Learning, Flask",2,Senior Software Engineer,Accenture,San Francisco,Healthcare,92000,"BTech, Masters"
+JOB0160,"Data Analysis, Django, AWS",6,AI Engineer,Microsoft,Austin,Finance,119000,BTech
+JOB0161,"React, Data Analysis, JavaScript, HTML, Tableau",8,Full Stack Developer,Accenture,Austin,Finance,171000,"Masters, BTech"
+JOB0162,"SQL, Excel, C++, CSS",12,Lead DevOps Engineer,IBM,San Francisco,Finance,155000,Diploma
+JOB0163,"Python, Machine Learning, Flask",10,Technical Lead,Accenture,San Francisco,Healthcare,197000,Diploma
+JOB0164,"C++, React, JavaScript",3,Full Stack Developer,IBM,Chicago,Telecom,92000,Diploma
+JOB0165,"C++, Django, Machine Learning",2,Full Stack Developer,Infosys,Chicago,Finance,79000,Diploma
+JOB0166,"Power BI, CSS, Excel, Machine Learning",10,Lead DevOps Engineer,Amazon,New York,Education,158000,Diploma
+JOB0167,"Tableau, Data Analysis, Machine Learning, React, Django, Power BI",14,Business Intelligence Analyst,Amazon,New York,E-commerce,183000,"BTech, Masters"
+JOB0168,"Power BI, CSS, AWS",6,Business Intelligence Analyst,Accenture,Austin,Telecom,139000,"BTech, Masters"
+JOB0169,"Tableau, JavaScript, AWS, Data Analysis, Python",1,Senior Software Engineer,Google,Chicago,Healthcare,70000,"BTech, Masters"
+JOB0170,"Excel, Kubernetes, Node.js, JavaScript, Flask, AWS",2,Business Intelligence Analyst,Microsoft,London,E-commerce,68000,"Masters, BTech"
+JOB0171,"Python, React, Node.js, C++",4,Data Engineer,Accenture,Chicago,Finance,104000,"BTech, Masters"
+JOB0172,"Flask, Django, C++, Data Analysis, Machine Learning",3,Technical Lead,Accenture,Boston,IT,81000,Diploma
+JOB0173,"Kubernetes, Python, Data Analysis",15,Full Stack Developer,Capgemini,San Francisco,E-commerce,172000,"Masters, BTech"
+JOB0174,"HTML, Excel, Node.js, Python, Tableau, Power BI",2,Business Intelligence Analyst,Cognizant,San Francisco,E-commerce,63000,Diploma
+JOB0175,"Flask, AWS, Machine Learning",14,Lead DevOps Engineer,Google,San Francisco,Finance,170000,BTech
+JOB0176,"React, Machine Learning, Java, JavaScript, Power BI",9,Full Stack Developer,Microsoft,New York,E-commerce,150000,Diploma
+JOB0177,"SQL, Docker, Data Analysis",13,Lead DevOps Engineer,Capgemini,San Francisco,E-commerce,170000,Diploma
+JOB0178,"SQL, Excel, C++",5,Senior Web Developer,Accenture,Berlin,Telecom,142000,"BTech, Masters"
+JOB0179,"Machine Learning, Power BI, Tableau, AWS, Docker, Java",4,Senior Web Developer,Accenture,New York,Telecom,88000,"Masters, BTech"
+JOB0180,"Excel, React, JavaScript, CSS, Django",7,Technical Lead,Infosys,San Francisco,Telecom,127000,"BTech, Masters"
+JOB0181,"AWS, Python, React, JavaScript, Kubernetes, Django",11,Senior Software Engineer,Google,Berlin,IT,191000,"Masters, BTech"
+JOB0182,"JavaScript, Python, Kubernetes, Machine Learning, HTML, AWS",6,Technical Lead,Infosys,San Francisco,Telecom,133000,"Masters, BTech"
+JOB0183,"React, SQL, AWS, Node.js",2,Lead DevOps Engineer,Cognizant,Berlin,IT,68000,BTech
+JOB0184,"Python, Kubernetes, HTML, Flask, Docker, Excel",7,Senior Software Engineer,Accenture,Berlin,Education,132000,"Masters, BTech"
+JOB0185,"Python, JavaScript, Node.js, HTML, Tableau",12,Senior Software Engineer,Facebook,Boston,Finance,159000,BTech
+JOB0186,"HTML, Flask, Machine Learning, AWS",11,Senior Software Engineer,Microsoft,Seattle,IT,157000,Diploma
+JOB0187,"Django, C++, JavaScript, HTML, Data Analysis",13,AI Engineer,Microsoft,New York,Telecom,163000,"Masters, BTech"
+JOB0188,"Django, HTML, AWS",3,Senior Web Developer,IBM,Austin,IT,99000,"Masters, BTech"
+JOB0189,"HTML, Node.js, Django, Docker",8,Senior Software Engineer,Capgemini,Boston,Telecom,169000,Diploma
+JOB0190,"Java, React, C++, Data Analysis",6,Lead DevOps Engineer,Cognizant,San Francisco,Healthcare,126000,"BTech, Masters"
+JOB0191,"C++, AWS, React, Data Analysis",13,Full Stack Developer,Accenture,New York,Telecom,168000,"Masters, BTech"
+JOB0192,"Flask, C++, Python, Java, Docker, Django",5,Full Stack Developer,Accenture,Seattle,Education,147000,"BTech, Masters"
+JOB0193,"Python, Excel, Docker",7,Data Engineer,Microsoft,Berlin,Finance,124000,"Masters, BTech"
+JOB0194,"C++, Java, Flask",2,Full Stack Developer,Microsoft,Seattle,Healthcare,96000,BTech
+JOB0195,"Python, HTML, Django",9,Data Engineer,Cognizant,New York,E-commerce,179000,"Masters, BTech"
+JOB0196,"Node.js, Java, Machine Learning",5,Full Stack Developer,Amazon,New York,Healthcare,132000,"BTech, Masters"
+JOB0197,"Django, Data Analysis, Power BI, CSS",13,Data Engineer,IBM,New York,E-commerce,186000,BTech
+JOB0198,"Node.js, AWS, Kubernetes, C++",4,Senior Web Developer,Google,London,Education,90000,BTech
+JOB0199,"SQL, Excel, C++, Kubernetes, Flask",13,Full Stack Developer,Infosys,New York,E-commerce,184000,"Masters, BTech"
+JOB0200,"Node.js, Django, Python, AWS, Tableau, Java",8,AI Engineer,Amazon,Austin,Healthcare,197000,BTech
+JOB0201,"Power BI, AWS, Python",7,Business Intelligence Analyst,Google,New York,Education,124000,BTech
+JOB0202,"Flask, HTML, CSS, Data Analysis, Java",10,Data Engineer,Cognizant,London,IT,153000,"BTech, Masters"
+JOB0203,"Flask, Excel, SQL, Django",14,Data Engineer,Cognizant,London,E-commerce,188000,"BTech, Masters"
+JOB0204,"Power BI, Machine Learning, Excel",15,Full Stack Developer,Microsoft,Austin,IT,173000,"Masters, BTech"
+JOB0205,"Java, Tableau, Docker, AWS, Data Analysis",2,Technical Lead,Accenture,New York,Healthcare,88000,"Masters, BTech"
+JOB0206,"Python, Node.js, Data Analysis, JavaScript",2,Senior Web Developer,Accenture,London,Education,94000,"BTech, Masters"
+JOB0207,"Node.js, JavaScript, C++, Python, Java",7,Full Stack Developer,Capgemini,Boston,Finance,129000,BTech
+JOB0208,"Data Analysis, SQL, React, CSS, Docker",14,Senior Web Developer,Facebook,San Francisco,Education,198000,"BTech, Masters"
+JOB0209,"Data Analysis, Kubernetes, React, Flask, Excel",7,Full Stack Developer,Amazon,Seattle,Healthcare,122000,"Masters, BTech"
+JOB0210,"Excel, JavaScript, AWS, Docker, Flask",5,Lead DevOps Engineer,Accenture,San Francisco,IT,146000,"BTech, Masters"
+JOB0211,"Data Analysis, React, Java, JavaScript, Python, Node.js",12,Full Stack Developer,Cognizant,Boston,IT,166000,BTech
+JOB0212,"C++, AWS, Flask, Data Analysis",3,Full Stack Developer,IBM,New York,Finance,100000,BTech
+JOB0213,"Django, Flask, Machine Learning, Excel, Java, Docker",10,Senior Web Developer,Cognizant,Austin,Healthcare,195000,"Masters, BTech"
+JOB0214,"Django, AWS, CSS",2,Data Engineer,Microsoft,London,IT,103000,BTech
+JOB0215,"Docker, Machine Learning, Power BI, Tableau, Java, CSS",6,Full Stack Developer,Infosys,San Francisco,Telecom,114000,Diploma
+JOB0216,"Docker, Node.js, Python, Excel, JavaScript, CSS",3,Business Intelligence Analyst,Accenture,New York,E-commerce,89000,"BTech, Masters"
+JOB0217,"AWS, React, Java, Excel",7,Business Intelligence Analyst,Microsoft,New York,Education,133000,Diploma
+JOB0218,"SQL, Power BI, Django, Excel",4,Full Stack Developer,Capgemini,Austin,E-commerce,82000,Diploma
+JOB0219,"Flask, Python, JavaScript, Kubernetes",8,Technical Lead,IBM,London,Education,171000,"BTech, Masters"
+JOB0220,"Tableau, Power BI, SQL, Machine Learning, Docker, Flask",8,Full Stack Developer,Accenture,New York,Telecom,156000,"BTech, Masters"
+JOB0221,"HTML, Data Analysis, React, Power BI",11,Business Intelligence Analyst,Accenture,San Francisco,Education,177000,"Masters, BTech"
+JOB0222,"Machine Learning, Django, Node.js, Flask, Java, Power BI",15,Full Stack Developer,Facebook,Boston,Healthcare,188000,"Masters, BTech"
+JOB0223,"Docker, Excel, Machine Learning, JavaScript",2,Senior Web Developer,Amazon,Seattle,IT,60000,Diploma
+JOB0224,"HTML, Django, Power BI, Kubernetes, JavaScript, Data Analysis",6,Data Engineer,Cognizant,Chicago,Education,113000,"BTech, Masters"
+JOB0225,"SQL, Excel, Kubernetes, C++",4,Full Stack Developer,Infosys,San Francisco,IT,88000,Diploma
+JOB0226,"React, AWS, Excel, SQL, Machine Learning",13,Technical Lead,IBM,New York,Healthcare,159000,"Masters, BTech"
+JOB0227,"JavaScript, Python, Data Analysis, Machine Learning, Tableau",2,Senior Web Developer,Cognizant,San Francisco,Healthcare,76000,"BTech, Masters"
+JOB0228,"Kubernetes, Java, C++",11,Senior Software Engineer,Amazon,Chicago,Education,186000,"Masters, BTech"
+JOB0229,"Python, Docker, Power BI, Node.js, Machine Learning, Java",6,Senior Web Developer,Amazon,Berlin,Finance,124000,"BTech, Masters"
+JOB0230,"Node.js, Data Analysis, JavaScript, Python",13,Senior Software Engineer,Google,New York,Healthcare,166000,"Masters, BTech"
+JOB0231,"Kubernetes, Node.js, Flask, Machine Learning",4,Senior Web Developer,Google,New York,Healthcare,96000,"BTech, Masters"
+JOB0232,"HTML, Power BI, Django, Data Analysis",1,Data Engineer,Microsoft,Berlin,Education,72000,"Masters, BTech"
+JOB0233,"HTML, Data Analysis, Power BI",2,Full Stack Developer,Infosys,San Francisco,Finance,63000,Diploma
+JOB0234,"Data Analysis, CSS, Tableau, HTML, Power BI",9,Business Intelligence Analyst,Capgemini,Austin,Education,178000,"Masters, BTech"
+JOB0235,"HTML, SQL, Data Analysis, Python",8,Business Intelligence Analyst,Accenture,San Francisco,Finance,155000,"BTech, Masters"
+JOB0236,"AWS, JavaScript, CSS, Django, SQL, React",11,Senior Web Developer,Infosys,Chicago,Telecom,185000,BTech
+JOB0237,"C++, HTML, CSS, Java, AWS",6,Lead DevOps Engineer,Accenture,San Francisco,Healthcare,142000,"Masters, BTech"
+JOB0238,"Tableau, Kubernetes, Django",1,Full Stack Developer,Facebook,Boston,Finance,72000,"BTech, Masters"
+JOB0239,"Java, Python, SQL, Data Analysis",14,Lead DevOps Engineer,Infosys,San Francisco,IT,167000,BTech
+JOB0240,"Tableau, AWS, Docker",1,Senior Web Developer,Microsoft,Austin,Finance,70000,BTech
+JOB0241,"HTML, Python, Machine Learning, Tableau",2,Senior Web Developer,Microsoft,Boston,Telecom,82000,BTech
+JOB0242,"CSS, Tableau, Docker, React, Python, Excel",10,Senior Software Engineer,Infosys,New York,Telecom,183000,BTech
+JOB0243,"React, CSS, Excel, HTML, Tableau, Power BI",8,Senior Software Engineer,Google,San Francisco,Education,173000,"Masters, BTech"
+JOB0244,"Kubernetes, SQL, AWS, CSS, C++, React",15,Technical Lead,Facebook,Chicago,Telecom,196000,"BTech, Masters"
+JOB0245,"C++, Docker, Tableau, React, JavaScript, HTML",11,Technical Lead,Accenture,London,Finance,170000,Diploma
+JOB0246,"Flask, Python, Java, Kubernetes, Data Analysis",5,AI Engineer,Cognizant,London,Healthcare,135000,BTech
+JOB0247,"Django, Power BI, AWS",3,Lead DevOps Engineer,Cognizant,Austin,Healthcare,89000,"BTech, Masters"
+JOB0248,"Power BI, Django, HTML, Flask, Excel, Kubernetes",7,Data Engineer,Infosys,Seattle,IT,125000,"BTech, Masters"
+JOB0249,"Docker, Excel, React, Machine Learning",3,Business Intelligence Analyst,IBM,Seattle,Education,90000,BTech
+JOB0250,"Kubernetes, Node.js, CSS, AWS, Docker, HTML",14,Business Intelligence Analyst,IBM,Austin,Healthcare,163000,Diploma
+JOB0251,"HTML, AWS, CSS",4,Business Intelligence Analyst,Accenture,Boston,Healthcare,96000,BTech
+JOB0252,"HTML, Node.js, Data Analysis",14,Data Engineer,Microsoft,London,Education,176000,"Masters, BTech"
+JOB0253,"Kubernetes, Power BI, C++",3,Technical Lead,Accenture,Berlin,Finance,88000,BTech
+JOB0254,"Java, Kubernetes, Python, SQL",3,AI Engineer,Infosys,San Francisco,Telecom,108000,BTech
+JOB0255,"Node.js, Django, Machine Learning, JavaScript, Java, Power BI",2,AI Engineer,IBM,New York,Education,73000,"BTech, Masters"
+JOB0256,"HTML, Java, Tableau",15,Full Stack Developer,Facebook,Seattle,E-commerce,184000,"Masters, BTech"
+JOB0257,"Tableau, Power BI, AWS, Kubernetes, React",15,Business Intelligence Analyst,Google,Austin,Education,170000,"Masters, BTech"
+JOB0258,"Docker, Java, HTML, Tableau",12,Full Stack Developer,Amazon,San Francisco,Education,152000,Diploma
+JOB0259,"Docker, HTML, SQL, AWS",11,AI Engineer,Capgemini,Chicago,Healthcare,167000,Diploma
+JOB0260,"Node.js, Machine Learning, Data Analysis, C++, Power BI, React",2,Full Stack Developer,IBM,London,Education,105000,BTech
+JOB0261,"CSS, JavaScript, Machine Learning, Power BI, Django",10,AI Engineer,Amazon,New York,Finance,175000,"Masters, BTech"
+JOB0262,"AWS, Excel, Flask, Machine Learning, React, CSS",8,Lead DevOps Engineer,IBM,New York,Telecom,178000,Diploma
+JOB0263,"Python, Power BI, SQL, JavaScript, React, Excel",9,Technical Lead,Accenture,San Francisco,IT,191000,"Masters, BTech"
+JOB0264,"CSS, Power BI, Tableau, Docker, Django, AWS",5,Lead DevOps Engineer,Cognizant,New York,E-commerce,111000,"BTech, Masters"
+JOB0265,"Data Analysis, Python, Flask, JavaScript",11,Full Stack Developer,Capgemini,Boston,Telecom,174000,BTech
+JOB0266,"Data Analysis, Power BI, Django, Python",10,Business Intelligence Analyst,Google,New York,Healthcare,153000,Diploma
+JOB0267,"Node.js, Power BI, SQL, Docker, Python",11,AI Engineer,Accenture,Berlin,Education,198000,"Masters, BTech"
+JOB0268,"JavaScript, HTML, CSS, Kubernetes, SQL",15,AI Engineer,Google,San Francisco,Education,196000,Diploma
+JOB0269,"Flask, Kubernetes, Power BI",14,Full Stack Developer,Infosys,Chicago,IT,171000,Diploma
+JOB0270,"Django, HTML, Tableau",11,Business Intelligence Analyst,Capgemini,Boston,Finance,150000,Diploma
+JOB0271,"Java, Excel, Power BI",8,AI Engineer,Microsoft,Seattle,Healthcare,189000,"Masters, BTech"
+JOB0272,"JavaScript, C++, Power BI, Java, Machine Learning",14,Lead DevOps Engineer,Facebook,San Francisco,Healthcare,187000,BTech
+JOB0273,"Kubernetes, Flask, Docker, SQL",12,Senior Software Engineer,Accenture,Chicago,Healthcare,193000,"Masters, BTech"
+JOB0274,"Data Analysis, Power BI, Java, React, Docker",3,Senior Web Developer,IBM,Boston,Healthcare,103000,BTech
+JOB0275,"Kubernetes, Excel, C++, Java, AWS, Tableau",2,Full Stack Developer,Infosys,Berlin,Telecom,88000,BTech
+JOB0276,"React, JavaScript, AWS, CSS, Flask, Excel",13,Full Stack Developer,Accenture,New York,Education,154000,"Masters, BTech"
+JOB0277,"AWS, Data Analysis, Machine Learning, CSS, Tableau",4,Full Stack Developer,Facebook,London,IT,91000,"BTech, Masters"
+JOB0278,"JavaScript, Machine Learning, Tableau, Java",8,Technical Lead,IBM,Boston,E-commerce,162000,Diploma
+JOB0279,"Tableau, Power BI, Docker",2,Data Engineer,Accenture,Seattle,Education,62000,BTech
+JOB0280,"AWS, HTML, Machine Learning",15,Full Stack Developer,Amazon,Boston,Telecom,181000,BTech
+JOB0281,"Flask, Power BI, C++, Tableau",11,AI Engineer,Cognizant,San Francisco,IT,173000,Diploma
+JOB0282,"C++, Power BI, Tableau, Excel, Docker, React",7,Senior Software Engineer,Google,London,E-commerce,130000,BTech
+JOB0283,"Data Analysis, Machine Learning, AWS, C++, React",9,Lead DevOps Engineer,Capgemini,San Francisco,IT,182000,"Masters, BTech"
+JOB0284,"React, C++, Tableau",2,Full Stack Developer,Amazon,New York,E-commerce,96000,Diploma
+JOB0285,"Power BI, Docker, AWS",2,Data Engineer,IBM,Chicago,Education,70000,BTech
+JOB0286,"Power BI, C++, Docker, Kubernetes, Data Analysis, Flask",11,Senior Web Developer,Facebook,San Francisco,E-commerce,179000,Diploma
+JOB0287,"React, Tableau, Docker, SQL, Kubernetes",1,Full Stack Developer,IBM,Austin,IT,74000,"Masters, BTech"
+JOB0288,"Docker, CSS, AWS, Excel",14,Business Intelligence Analyst,Microsoft,New York,Healthcare,184000,Diploma
+JOB0289,"C++, React, Tableau, Node.js, Excel",14,AI Engineer,Capgemini,Chicago,IT,195000,"Masters, BTech"
+JOB0290,"HTML, Python, Power BI, Docker",9,Senior Software Engineer,Google,Seattle,IT,150000,"BTech, Masters"
+JOB0291,"CSS, C++, Excel",4,Lead DevOps Engineer,Microsoft,San Francisco,E-commerce,100000,BTech
+JOB0292,"C++, Django, Flask",5,Full Stack Developer,Infosys,New York,IT,115000,"BTech, Masters"
+JOB0293,"Power BI, React, Excel, Kubernetes, Java",1,Full Stack Developer,Google,Chicago,IT,74000,"BTech, Masters"
+JOB0294,"Flask, HTML, Python",2,Business Intelligence Analyst,Google,New York,Education,91000,BTech
+JOB0295,"Java, Tableau, AWS, Python, Docker, C++",15,Senior Software Engineer,Capgemini,San Francisco,Finance,183000,"Masters, BTech"
+JOB0296,"HTML, Machine Learning, Power BI, React, Java, C++",8,Data Engineer,Cognizant,New York,E-commerce,199000,BTech
+JOB0297,"Python, Machine Learning, Power BI, Data Analysis, React",14,Technical Lead,Google,Berlin,IT,160000,BTech
+JOB0298,"Python, Kubernetes, Node.js",3,Senior Web Developer,Google,Seattle,Telecom,85000,"BTech, Masters"
+JOB0299,"Tableau, JavaScript, AWS, Python",2,Senior Software Engineer,Google,London,Education,109000,"BTech, Masters"
+JOB0300,"C++, Java, Docker",12,Technical Lead,Accenture,San Francisco,Education,150000,"Masters, BTech"
+JOB0301,"Machine Learning, Java, Python, Flask, C++",14,Lead DevOps Engineer,Google,Austin,Education,157000,BTech
+JOB0302,"C++, Node.js, Python",3,Technical Lead,Google,London,Telecom,99000,BTech
+JOB0303,"Docker, React, Machine Learning, Kubernetes, Java",1,Senior Software Engineer,Accenture,Seattle,E-commerce,64000,Diploma
+JOB0304,"Django, Power BI, React",3,Full Stack Developer,Microsoft,Austin,Telecom,86000,BTech
+JOB0305,"Java, HTML, Data Analysis",4,Full Stack Developer,Microsoft,Chicago,Finance,102000,"Masters, BTech"
+JOB0306,"JavaScript, Flask, React, Data Analysis, Power BI, SQL",7,Data Engineer,Cognizant,Austin,Finance,110000,BTech
+JOB0307,"React, Machine Learning, Django, JavaScript, HTML",12,Data Engineer,Facebook,Berlin,Finance,160000,BTech
+JOB0308,"JavaScript, SQL, AWS, Flask, Django, Data Analysis",10,Technical Lead,Google,London,Healthcare,197000,Diploma
+JOB0309,"CSS, HTML, Power BI, Excel",1,Full Stack Developer,Microsoft,New York,IT,60000,"Masters, BTech"
+JOB0310,"Power BI, Django, Data Analysis, C++, Tableau, Excel",3,Lead DevOps Engineer,Accenture,San Francisco,Healthcare,108000,BTech
+JOB0311,"Data Analysis, Node.js, Tableau, Django, Docker, C++",3,Data Engineer,Amazon,Austin,Education,94000,Diploma
+JOB0312,"C++, Power BI, Java, SQL",7,Business Intelligence Analyst,Accenture,Chicago,Finance,120000,BTech
+JOB0313,"Data Analysis, Excel, SQL, Machine Learning, React, Node.js",7,Business Intelligence Analyst,Infosys,New York,E-commerce,114000,BTech
+JOB0314,"Tableau, Power BI, AWS, React, Machine Learning, Docker",2,Data Engineer,Microsoft,Berlin,Finance,98000,"BTech, Masters"
+JOB0315,"Tableau, Kubernetes, Data Analysis, Excel",5,AI Engineer,Amazon,Berlin,Finance,137000,BTech
+JOB0316,"Data Analysis, AWS, Kubernetes, Python, Tableau, Machine Learning",8,Full Stack Developer,Cognizant,London,Finance,190000,"Masters, BTech"
+JOB0317,"Power BI, Excel, Django, HTML",5,Full Stack Developer,Google,Berlin,IT,112000,"BTech, Masters"
+JOB0318,"Data Analysis, Excel, Kubernetes, CSS, Django",11,Data Engineer,Microsoft,New York,Healthcare,174000,BTech
+JOB0319,"React, Machine Learning, SQL",13,AI Engineer,Google,Boston,IT,170000,Diploma
+JOB0320,"Excel, Power BI, Django",14,Full Stack Developer,Infosys,New York,Healthcare,194000,Diploma
+JOB0321,"Excel, Power BI, Python",13,Full Stack Developer,IBM,Boston,Education,198000,"BTech, Masters"
+JOB0322,"React, Kubernetes, HTML",13,Business Intelligence Analyst,Facebook,Austin,IT,188000,BTech
+JOB0323,"AWS, Excel, React, CSS",8,Technical Lead,Accenture,New York,IT,196000,"Masters, BTech"
+JOB0324,"JavaScript, Flask, HTML, Kubernetes, Node.js, SQL",7,AI Engineer,Facebook,New York,IT,138000,Diploma
+JOB0325,"Machine Learning, Node.js, SQL, C++, JavaScript, Flask",3,Full Stack Developer,Cognizant,Austin,IT,103000,"BTech, Masters"
+JOB0326,"AWS, Django, C++, Java",9,Senior Web Developer,Microsoft,Berlin,IT,161000,"BTech, Masters"
+JOB0327,"Python, Django, Excel, Data Analysis",14,Full Stack Developer,Microsoft,Seattle,Telecom,178000,"BTech, Masters"
+JOB0328,"CSS, Excel, Tableau",8,Senior Web Developer,Google,Chicago,E-commerce,158000,BTech
+JOB0329,"Django, HTML, Node.js, C++",5,Senior Web Developer,Google,New York,Education,131000,BTech
+JOB0330,"Tableau, CSS, Flask",1,AI Engineer,Google,Berlin,IT,75000,Diploma
+JOB0331,"Node.js, HTML, React, CSS, Django, Docker",2,Frontend Developer,Accenture,Austin,Healthcare,76000,"Masters, BTech"
+JOB0332,"CSS, C++, Java, Flask",2,Senior Software Engineer,IBM,Seattle,Healthcare,101000,BTech
+JOB0333,"AWS, Data Analysis, Flask",2,Lead DevOps Engineer,Cognizant,London,Healthcare,87000,"Masters, BTech"
+JOB0334,"Docker, C++, AWS, Python, SQL",2,Full Stack Developer,Microsoft,Berlin,Telecom,79000,"Masters, BTech"
+JOB0335,"Power BI, Java, Flask, Data Analysis, Python",12,Full Stack Developer,Microsoft,Austin,E-commerce,176000,"Masters, BTech"
+JOB0336,"Excel, CSS, JavaScript, Power BI, SQL",3,Full Stack Developer,Microsoft,Chicago,Telecom,77000,BTech
+JOB0337,"Docker, C++, Excel, Tableau",5,Technical Lead,Accenture,Berlin,Telecom,138000,"BTech, Masters"
+JOB0338,"Data Analysis, SQL, Python, Flask, JavaScript, Django",14,AI Engineer,Capgemini,San Francisco,Healthcare,199000,Diploma
+JOB0339,"Excel, React, Python, HTML, Tableau, CSS",6,AI Engineer,Google,London,Healthcare,134000,"Masters, BTech"
+JOB0340,"Tableau, Java, Python, React, JavaScript",3,Senior Software Engineer,Accenture,Boston,Healthcare,86000,"Masters, BTech"
+JOB0341,"HTML, Power BI, AWS, Kubernetes",5,Full Stack Developer,Amazon,Chicago,Finance,131000,"BTech, Masters"
+JOB0342,"SQL, Java, CSS, Excel, Tableau, Kubernetes",5,Senior Web Developer,Amazon,San Francisco,Telecom,119000,"BTech, Masters"
+JOB0343,"Power BI, Data Analysis, Kubernetes, React, C++",7,Technical Lead,Microsoft,New York,Telecom,120000,BTech
+JOB0344,"JavaScript, AWS, Python, Flask",9,AI Engineer,Cognizant,Boston,Finance,154000,"Masters, BTech"
+JOB0345,"Java, Power BI, Python, React",13,Business Intelligence Analyst,Facebook,New York,IT,170000,Diploma
+JOB0346,"SQL, Docker, Data Analysis, Python, Java, Kubernetes",3,Business Intelligence Analyst,Capgemini,Berlin,Healthcare,103000,BTech
+JOB0347,"Flask, AWS, Java, Power BI, Django",6,Full Stack Developer,Google,Berlin,Telecom,185000,"Masters, BTech"
+JOB0348,"AWS, JavaScript, Machine Learning, React",1,Full Stack Developer,Accenture,Berlin,Education,69000,"BTech, Masters"
+JOB0349,"SQL, Machine Learning, CSS, C++, Data Analysis, Flask",2,Senior Software Engineer,Google,New York,IT,77000,BTech
+JOB0350,"CSS, Django, Tableau, JavaScript",15,Technical Lead,Amazon,New York,Healthcare,178000,Diploma
+JOB0351,"Tableau, Machine Learning, JavaScript",5,Senior Web Developer,Infosys,Austin,Finance,128000,"Masters, BTech"
+JOB0352,"Django, CSS, Docker",13,Senior Web Developer,Accenture,Boston,Healthcare,198000,BTech
+JOB0353,"SQL, Docker, React, Excel",14,Technical Lead,Amazon,San Francisco,Telecom,187000,"Masters, BTech"
+JOB0354,"JavaScript, HTML, Power BI, Machine Learning, Kubernetes",15,Business Intelligence Analyst,IBM,Austin,E-commerce,150000,BTech
+JOB0355,"Kubernetes, Tableau, Node.js, Docker",9,Technical Lead,Infosys,New York,Finance,158000,Diploma
+JOB0356,"Excel, Docker, Django",6,Business Intelligence Analyst,Facebook,New York,Telecom,129000,"BTech, Masters"
+JOB0357,"Django, Docker, SQL, JavaScript, Node.js",4,Senior Software Engineer,Microsoft,Boston,Healthcare,92000,Diploma
+JOB0358,"Python, C++, Tableau, Django, Docker, CSS",11,Full Stack Developer,Facebook,San Francisco,Finance,183000,BTech
+JOB0359,"Python, JavaScript, Power BI, Excel",13,Senior Software Engineer,Accenture,New York,Telecom,174000,"Masters, BTech"
+JOB0360,"SQL, Flask, Java",15,Lead DevOps Engineer,Accenture,Seattle,Education,197000,Diploma
+JOB0361,"Docker, AWS, Power BI, Java, Data Analysis, HTML",4,Senior Software Engineer,Capgemini,London,Telecom,97000,BTech
+JOB0362,"Python, Tableau, C++, Data Analysis, AWS",13,Senior Web Developer,Accenture,Berlin,IT,170000,"Masters, BTech"
+JOB0363,"Tableau, HTML, Excel, Data Analysis",5,Full Stack Developer,Google,San Francisco,Telecom,142000,Diploma
+JOB0364,"Flask, AWS, Machine Learning, Power BI",11,Senior Software Engineer,Amazon,Seattle,E-commerce,186000,"Masters, BTech"
+JOB0365,"Docker, Data Analysis, Django, AWS, Node.js, Python",8,Senior Software Engineer,Cognizant,Berlin,Finance,151000,"BTech, Masters"
+JOB0366,"AWS, Java, Tableau, JavaScript, Kubernetes, Flask",4,Data Engineer,Facebook,Berlin,Finance,93000,Diploma
+JOB0367,"Java, Docker, SQL, AWS, Django, JavaScript",2,Business Intelligence Analyst,Cognizant,Berlin,E-commerce,107000,Diploma
+JOB0368,"Node.js, Data Analysis, Kubernetes, Flask",12,AI Engineer,Google,New York,E-commerce,158000,Diploma
+JOB0369,"JavaScript, Excel, Power BI, Kubernetes",10,Technical Lead,Infosys,London,E-commerce,196000,"BTech, Masters"
+JOB0370,"HTML, Python, Django, Docker",4,AI Engineer,IBM,Berlin,Education,90000,"Masters, BTech"
+JOB0371,"Excel, SQL, JavaScript, HTML, C++",14,Senior Web Developer,Accenture,San Francisco,Education,185000,"BTech, Masters"
+JOB0372,"Docker, AWS, Machine Learning, Python, Tableau",9,Lead DevOps Engineer,Google,New York,Telecom,176000,BTech
+JOB0373,"JavaScript, Excel, Docker, Data Analysis, SQL, Power BI",2,Senior Software Engineer,Cognizant,London,Healthcare,107000,"BTech, Masters"
+JOB0374,"Data Analysis, CSS, Flask, Tableau, C++, SQL",12,Lead DevOps Engineer,Facebook,London,Healthcare,197000,Diploma
+JOB0375,"Flask, HTML, CSS, Docker, Power BI",9,Data Engineer,Amazon,San Francisco,Education,162000,BTech
+JOB0376,"Node.js, Flask, Django, Tableau",6,Senior Software Engineer,Cognizant,New York,Education,136000,"Masters, BTech"
+JOB0377,"AWS, Docker, CSS, HTML",8,Full Stack Developer,Capgemini,Austin,Healthcare,179000,"Masters, BTech"
+JOB0378,"Django, Power BI, AWS, Data Analysis, Java",12,AI Engineer,Infosys,London,Healthcare,154000,Diploma
+JOB0379,"Docker, Node.js, SQL, AWS, Kubernetes, Django",2,Senior Software Engineer,IBM,Austin,Telecom,65000,"Masters, BTech"
+JOB0380,"Django, CSS, Node.js",1,AI Engineer,Amazon,London,Telecom,76000,BTech
+JOB0381,"Django, Machine Learning, C++, Kubernetes",4,Lead DevOps Engineer,Amazon,Chicago,Education,80000,BTech
+JOB0382,"Flask, Java, Machine Learning, SQL, JavaScript",2,Lead DevOps Engineer,Microsoft,New York,Finance,100000,BTech
+JOB0383,"Python, C++, Kubernetes",5,Business Intelligence Analyst,Capgemini,Austin,E-commerce,148000,"Masters, BTech"
+JOB0384,"Node.js, Java, SQL, C++",14,Business Intelligence Analyst,Accenture,San Francisco,Education,185000,"Masters, BTech"
+JOB0385,"Kubernetes, C++, React, Django, Docker, Data Analysis",4,AI Engineer,Accenture,San Francisco,Telecom,94000,"Masters, BTech"
+JOB0386,"CSS, AWS, Docker",3,Full Stack Developer,Microsoft,San Francisco,Finance,102000,"Masters, BTech"
+JOB0387,"Excel, Django, Docker, Kubernetes, Node.js",3,Senior Web Developer,Google,Berlin,E-commerce,105000,"Masters, BTech"
+JOB0388,"Power BI, Docker, AWS, Node.js, Machine Learning",13,Full Stack Developer,Infosys,Boston,IT,189000,Diploma
+JOB0389,"C++, Kubernetes, React, Power BI",6,Full Stack Developer,Accenture,New York,Telecom,130000,Diploma
+JOB0390,"AWS, Node.js, Excel, Java, Tableau, Data Analysis",7,Senior Web Developer,Cognizant,London,E-commerce,119000,"BTech, Masters"
+JOB0391,"JavaScript, CSS, Machine Learning",10,Senior Web Developer,Cognizant,San Francisco,Healthcare,196000,"BTech, Masters"
+JOB0392,"Data Analysis, HTML, Machine Learning, CSS, Flask",15,Data Engineer,IBM,Berlin,Finance,161000,"Masters, BTech"
+JOB0393,"Java, Node.js, CSS",2,Senior Web Developer,Accenture,San Francisco,IT,74000,"Masters, BTech"
+JOB0394,"Kubernetes, Excel, AWS, Django, CSS, Python",7,Business Intelligence Analyst,Accenture,Boston,IT,144000,"BTech, Masters"
+JOB0395,"JavaScript, CSS, React, HTML",6,AI Engineer,Microsoft,San Francisco,IT,115000,Diploma
+JOB0396,"Python, Flask, Kubernetes, Tableau, SQL, HTML",5,Full Stack Developer,Infosys,Austin,E-commerce,132000,BTech
+JOB0397,"Node.js, Tableau, Java, CSS",9,Lead DevOps Engineer,Microsoft,San Francisco,Education,179000,BTech
+JOB0398,"HTML, Excel, Power BI",2,Full Stack Developer,Amazon,Chicago,Finance,63000,BTech
+JOB0399,"Flask, Java, Django, Power BI",12,Lead DevOps Engineer,Accenture,San Francisco,E-commerce,163000,Diploma
+JOB0400,"Django, HTML, Flask, Data Analysis",2,Business Intelligence Analyst,Infosys,Austin,Finance,74000,BTech
+JOB0401,"Flask, Django, Node.js, Data Analysis, Java, Tableau",10,AI Engineer,Microsoft,Austin,Finance,175000,"Masters, BTech"
+JOB0402,"Power BI, Java, Excel, Node.js, Tableau",11,Lead DevOps Engineer,Facebook,San Francisco,Telecom,152000,Diploma
+JOB0403,"Django, Excel, Machine Learning, Python, Kubernetes, HTML",4,AI Engineer,Capgemini,New York,E-commerce,96000,"Masters, BTech"
+JOB0404,"JavaScript, Tableau, Machine Learning, Excel, Node.js",2,Technical Lead,Amazon,Boston,IT,89000,BTech
+JOB0405,"Machine Learning, Java, CSS, Django",15,Full Stack Developer,Google,New York,Healthcare,167000,BTech
+JOB0406,"Power BI, SQL, React, Python, Flask, AWS",1,Full Stack Developer,IBM,Boston,Education,65000,"BTech, Masters"
+JOB0407,"Flask, SQL, Django, Excel, Machine Learning, JavaScript",1,Full Stack Developer,IBM,Chicago,Telecom,66000,"BTech, Masters"
+JOB0408,"Docker, Flask, SQL",2,Business Intelligence Analyst,Accenture,Austin,Healthcare,101000,BTech
+JOB0409,"Node.js, React, Machine Learning, Excel, JavaScript, Kubernetes",9,Full Stack Developer,Infosys,Chicago,E-commerce,199000,"Masters, BTech"
+JOB0410,"Data Analysis, Docker, Django",4,Lead DevOps Engineer,Accenture,New York,Finance,100000,Diploma
+JOB0411,"Java, Django, Docker, C++, Python, Excel",4,Full Stack Developer,Accenture,London,Education,89000,"BTech, Masters"
+JOB0412,"HTML, Data Analysis, C++, JavaScript, Docker",3,Senior Software Engineer,Facebook,San Francisco,Education,103000,"BTech, Masters"
+JOB0413,"Flask, Java, Tableau, CSS, Data Analysis, HTML",1,Lead DevOps Engineer,Accenture,Chicago,IT,65000,Diploma
+JOB0414,"Excel, Node.js, Tableau, Django, AWS",7,Senior Web Developer,Cognizant,San Francisco,Education,134000,Diploma
+JOB0415,"Excel, Node.js, Python, Machine Learning, Docker, React",1,Data Engineer,IBM,London,Education,61000,"BTech, Masters"
+JOB0416,"Node.js, Java, Tableau",15,Data Engineer,Amazon,San Francisco,Finance,178000,Diploma
+JOB0417,"Django, Tableau, AWS, Flask, Docker",1,Senior Web Developer,Facebook,San Francisco,IT,79000,"Masters, BTech"
+JOB0418,"Kubernetes, HTML, Java, Python",5,Data Engineer,Infosys,Berlin,Education,144000,"Masters, BTech"
+JOB0419,"Node.js, SQL, Python, Kubernetes, Machine Learning",2,Full Stack Developer,Facebook,London,Education,107000,"BTech, Masters"
+JOB0420,"Data Analysis, Tableau, Excel, Java",13,Data Engineer,Amazon,Seattle,E-commerce,171000,BTech
+JOB0421,"HTML, Flask, Tableau, JavaScript, Excel",10,Business Intelligence Analyst,IBM,New York,E-commerce,180000,"BTech, Masters"
+JOB0422,"Node.js, CSS, Power BI, Flask, Java, JavaScript",4,AI Engineer,Facebook,Seattle,IT,81000,BTech
+JOB0423,"Excel, CSS, SQL, Tableau, Python, Power BI",9,Lead DevOps Engineer,Amazon,San Francisco,E-commerce,169000,Diploma
+JOB0424,"CSS, Power BI, Python, Node.js, Kubernetes",11,Full Stack Developer,IBM,New York,E-commerce,176000,"Masters, BTech"
+JOB0425,"Java, JavaScript, SQL, React",8,Full Stack Developer,Accenture,San Francisco,Telecom,163000,"Masters, BTech"
+JOB0426,"SQL, Excel, C++",6,Senior Web Developer,Microsoft,Berlin,Healthcare,148000,"Masters, BTech"
+JOB0427,"JavaScript, Excel, HTML, C++, Data Analysis",14,Lead DevOps Engineer,Infosys,New York,IT,164000,Diploma
+JOB0428,"SQL, Python, React, Excel, Kubernetes",6,Full Stack Developer,IBM,Berlin,Telecom,128000,Diploma
+JOB0429,"Docker, Flask, Machine Learning, SQL, React, Node.js",1,AI Engineer,Accenture,San Francisco,Finance,75000,"Masters, BTech"
+JOB0430,"Django, Excel, Power BI, Java",4,Full Stack Developer,Google,Seattle,Education,81000,BTech
+JOB0431,"React, C++, Machine Learning, JavaScript",15,Lead DevOps Engineer,Capgemini,San Francisco,Education,164000,"Masters, BTech"
+JOB0432,"Data Analysis, HTML, Power BI",4,Business Intelligence Analyst,Infosys,New York,IT,106000,Diploma
+JOB0433,"C++, Data Analysis, HTML, Docker",2,Full Stack Developer,Infosys,New York,IT,107000,Diploma
+JOB0434,"Node.js, Power BI, Kubernetes",8,Senior Software Engineer,Amazon,New York,Education,151000,Diploma
+JOB0435,"CSS, Excel, Data Analysis, Docker, Power BI, Node.js",11,Senior Software Engineer,Capgemini,London,Education,180000,"BTech, Masters"
+JOB0436,"Excel, Node.js, Python, SQL",13,Full Stack Developer,IBM,San Francisco,Telecom,189000,"Masters, BTech"
+JOB0437,"Power BI, Java, Docker, JavaScript, React, Python",11,Full Stack Developer,IBM,London,Telecom,195000,"Masters, BTech"
+JOB0438,"HTML, Python, Java",7,Full Stack Developer,Facebook,London,Healthcare,143000,Diploma
+JOB0439,"React, Java, Power BI, Excel",7,Lead DevOps Engineer,Accenture,Austin,Healthcare,113000,"Masters, BTech"
+JOB0440,"Machine Learning, SQL, Power BI, Data Analysis, Django",11,Senior Software Engineer,Facebook,London,Telecom,182000,"Masters, BTech"
+JOB0441,"Data Analysis, JavaScript, SQL, HTML",2,Technical Lead,Infosys,New York,E-commerce,69000,"Masters, BTech"
+JOB0442,"Java, Excel, Data Analysis, Django, Docker",14,Business Intelligence Analyst,Accenture,Berlin,Finance,170000,Diploma
+JOB0443,"JavaScript, Node.js, Power BI, HTML",14,Lead DevOps Engineer,Accenture,Berlin,Finance,180000,Diploma
+JOB0444,"Node.js, Flask, React, Java, Excel, AWS",7,Lead DevOps Engineer,Facebook,Boston,Education,114000,BTech
+JOB0445,"Java, Tableau, Power BI",2,Lead DevOps Engineer,Google,London,Education,82000,"BTech, Masters"
+JOB0446,"SQL, Django, Data Analysis, Java, CSS, AWS",12,Business Intelligence Analyst,Cognizant,New York,E-commerce,185000,BTech
+JOB0447,"Django, Kubernetes, Java, SQL, Machine Learning",9,Data Engineer,Amazon,Boston,E-commerce,159000,"Masters, BTech"
+JOB0448,"CSS, Node.js, AWS, JavaScript",10,Data Engineer,Capgemini,Berlin,E-commerce,185000,Diploma
+JOB0449,"Data Analysis, C++, AWS",2,Full Stack Developer,Google,Chicago,Telecom,79000,"BTech, Masters"
+JOB0450,"CSS, Data Analysis, Power BI, Excel",9,Full Stack Developer,Amazon,Berlin,IT,196000,"Masters, BTech"
+JOB0451,"SQL, Machine Learning, Django, Python, AWS",11,AI Engineer,Microsoft,San Francisco,E-commerce,175000,Diploma
+JOB0452,"Machine Learning, Flask, C++, AWS",12,Senior Software Engineer,Capgemini,London,Healthcare,176000,Diploma
+JOB0453,"AWS, Java, Docker, CSS, SQL, Excel",7,Business Intelligence Analyst,Google,Seattle,IT,138000,BTech
+JOB0454,"Power BI, Kubernetes, Excel, C++, React",3,Full Stack Developer,Facebook,San Francisco,Finance,83000,BTech
+JOB0455,"Flask, Node.js, Tableau, JavaScript, HTML",7,Senior Software Engineer,Capgemini,New York,Finance,149000,Diploma
+JOB0456,"C++, React, Tableau, Java, Node.js",9,Business Intelligence Analyst,Accenture,New York,IT,183000,"BTech, Masters"
+JOB0457,"Java, Python, Kubernetes, Docker, Flask",5,AI Engineer,Cognizant,Berlin,E-commerce,140000,Diploma
+JOB0458,"SQL, Kubernetes, Django, Java, Machine Learning, C++",3,Full Stack Developer,Accenture,Boston,Finance,103000,Diploma
+JOB0459,"Java, SQL, Power BI, React, HTML, Data Analysis",8,Full Stack Developer,Facebook,San Francisco,Education,192000,"BTech, Masters"
+JOB0460,"Java, Django, AWS, Node.js, React, JavaScript",8,Full Stack Developer,Accenture,San Francisco,Telecom,195000,"BTech, Masters"
+JOB0461,"Data Analysis, Python, React, Kubernetes, HTML, JavaScript",1,Senior Software Engineer,Infosys,Chicago,Healthcare,75000,BTech
+JOB0462,"React, Django, CSS, SQL",12,Full Stack Developer,Google,Austin,Finance,168000,BTech
+JOB0463,"Kubernetes, Excel, AWS, CSS",9,Senior Web Developer,Google,Seattle,Education,176000,BTech
+JOB0464,"AWS, Machine Learning, Python",13,Lead DevOps Engineer,Cognizant,New York,Finance,152000,"BTech, Masters"
+JOB0465,"Flask, Python, Power BI, Tableau",4,AI Engineer,Amazon,New York,Healthcare,88000,"Masters, BTech"
+JOB0466,"Kubernetes, Data Analysis, Excel, Node.js, Docker, Tableau",5,Senior Web Developer,Google,Berlin,Healthcare,115000,BTech
+JOB0467,"CSS, Node.js, AWS, JavaScript, HTML, Power BI",11,Senior Web Developer,Accenture,London,Healthcare,170000,"Masters, BTech"
+JOB0468,"Docker, AWS, Kubernetes",3,Senior Web Developer,Amazon,Chicago,Education,108000,Diploma
+JOB0469,"Excel, SQL, AWS, Power BI, JavaScript",3,Senior Web Developer,Cognizant,Seattle,Healthcare,94000,Diploma
+JOB0470,"Java, Data Analysis, CSS, Python, Node.js, SQL",2,Business Intelligence Analyst,Cognizant,Berlin,IT,101000,"BTech, Masters"
+JOB0471,"JavaScript, React, Tableau",2,Lead DevOps Engineer,Microsoft,New York,Education,78000,"BTech, Masters"
+JOB0472,"AWS, HTML, Django, CSS",4,Lead DevOps Engineer,Amazon,Austin,E-commerce,83000,"BTech, Masters"
+JOB0473,"CSS, JavaScript, Python, C++, Java, SQL",9,AI Engineer,Capgemini,San Francisco,E-commerce,168000,"BTech, Masters"
+JOB0474,"Excel, C++, Flask, JavaScript, HTML",10,Full Stack Developer,IBM,New York,E-commerce,196000,BTech
+JOB0475,"AWS, CSS, Java",10,Full Stack Developer,Google,San Francisco,IT,155000,"Masters, BTech"
+JOB0476,"Flask, Excel, Python, Data Analysis, Node.js",4,Business Intelligence Analyst,Infosys,New York,IT,86000,BTech
+JOB0477,"JavaScript, React, Python, Flask, Django, Node.js",8,Technical Lead,Infosys,Berlin,Finance,163000,"BTech, Masters"
+JOB0478,"SQL, CSS, JavaScript, Kubernetes, Django, Power BI",15,AI Engineer,IBM,Berlin,E-commerce,160000,Diploma
+JOB0479,"Data Analysis, Tableau, Django, Python, CSS, AWS",4,AI Engineer,Accenture,New York,IT,109000,Diploma
+JOB0480,"SQL, JavaScript, Tableau, Data Analysis, Node.js",12,Lead DevOps Engineer,Accenture,New York,IT,182000,Diploma
+JOB0481,"Excel, AWS, Node.js, SQL, C++",4,Full Stack Developer,Infosys,Austin,E-commerce,108000,"BTech, Masters"
+JOB0482,"Docker, Data Analysis, Django, HTML",3,AI Engineer,Cognizant,Seattle,IT,91000,Diploma
+JOB0483,"Data Analysis, SQL, Node.js, React",1,Business Intelligence Analyst,Capgemini,Austin,Telecom,73000,BTech
+JOB0484,"Flask, Kubernetes, AWS",8,Senior Web Developer,Amazon,Berlin,Healthcare,167000,BTech
+JOB0485,"Machine Learning, Flask, HTML, SQL, Power BI, Docker",6,Data Engineer,Cognizant,San Francisco,E-commerce,130000,"Masters, BTech"
+JOB0486,"SQL, Java, Docker, C++",4,Data Engineer,Google,New York,Education,89000,BTech
+JOB0487,"Machine Learning, Power BI, Docker, SQL, JavaScript, AWS",2,Full Stack Developer,Capgemini,Seattle,Finance,64000,"Masters, BTech"
+JOB0488,"Java, Node.js, CSS, Python",2,Lead DevOps Engineer,Google,New York,Finance,75000,Diploma
+JOB0489,"C++, Machine Learning, Java, Power BI, JavaScript, Python",8,AI Engineer,Accenture,Berlin,Healthcare,180000,"Masters, BTech"
+JOB0490,"Machine Learning, Kubernetes, HTML, Tableau",8,Senior Web Developer,Microsoft,Chicago,Education,163000,"Masters, BTech"
+JOB0491,"Django, Excel, Kubernetes, Node.js, Flask, Power BI",12,Lead DevOps Engineer,Facebook,Austin,Education,158000,"BTech, Masters"
+JOB0492,"AWS, C++, Django, Java, Flask, JavaScript",5,Lead DevOps Engineer,Google,New York,Education,116000,"BTech, Masters"
+JOB0493,"Python, C++, Tableau, CSS, JavaScript, Excel",9,Senior Software Engineer,Microsoft,Berlin,Finance,194000,Diploma
+JOB0494,"Power BI, Node.js, Kubernetes, C++, HTML",2,Business Intelligence Analyst,Facebook,London,Healthcare,72000,"BTech, Masters"
+JOB0495,"Excel, Machine Learning, C++, React, Python",10,Technical Lead,Infosys,Seattle,Education,173000,BTech
+JOB0496,"Django, Data Analysis, CSS, React",9,Business Intelligence Analyst,Accenture,London,Finance,197000,Diploma
+JOB0497,"HTML, Java, JavaScript, Machine Learning, Docker",5,Lead DevOps Engineer,Google,San Francisco,Finance,134000,"BTech, Masters"
+JOB0498,"Tableau, Excel, AWS, Machine Learning",3,Senior Software Engineer,Capgemini,Austin,E-commerce,88000,"Masters, BTech"
+JOB0499,"Machine Learning, CSS, SQL, Excel, Docker",15,Senior Web Developer,Accenture,Seattle,IT,157000,"BTech, Masters"
+JOB0500,"Java, Python, AWS, CSS",3,Lead DevOps Engineer,Infosys,San Francisco,Healthcare,85000,Diploma
+JOB0501,"Kubernetes, Excel, Node.js, JavaScript",11,Technical Lead,Capgemini,New York,Healthcare,154000,BTech
+JOB0502,"CSS, AWS, Docker, Node.js, Tableau, Django",5,Full Stack Developer,Accenture,Boston,Education,131000,"BTech, Masters"
+JOB0503,"Tableau, Node.js, HTML, Excel",10,Lead DevOps Engineer,Microsoft,Austin,Finance,177000,BTech
+JOB0504,"Django, JavaScript, Data Analysis, Node.js, Kubernetes, Java",5,Senior Software Engineer,Facebook,New York,Telecom,134000,BTech
+JOB0505,"Power BI, Flask, Python",8,Lead DevOps Engineer,Amazon,San Francisco,E-commerce,157000,"Masters, BTech"
+JOB0506,"Node.js, C++, Docker, AWS",1,AI Engineer,Accenture,Berlin,Telecom,66000,BTech
+JOB0507,"CSS, React, Flask, SQL, HTML, AWS",14,Business Intelligence Analyst,Google,New York,Finance,174000,BTech
+JOB0508,"Node.js, Tableau, HTML",10,Senior Web Developer,Microsoft,Boston,Finance,166000,"Masters, BTech"
+JOB0509,"Node.js, HTML, Django, SQL, CSS",3,Technical Lead,IBM,San Francisco,Finance,90000,"Masters, BTech"
+JOB0510,"Node.js, Excel, CSS, Power BI, C++",2,Senior Software Engineer,Cognizant,Austin,Finance,89000,Diploma
+JOB0511,"Flask, AWS, React, Django, Tableau",10,Full Stack Developer,Accenture,Austin,Telecom,165000,Diploma
+JOB0512,"SQL, Python, AWS, Django, Data Analysis, CSS",2,Business Intelligence Analyst,Accenture,Austin,E-commerce,61000,BTech
+JOB0513,"Node.js, AWS, Machine Learning",3,Full Stack Developer,Accenture,Seattle,IT,102000,"BTech, Masters"
+JOB0514,"Excel, Node.js, Java, JavaScript, Machine Learning, AWS",7,Lead DevOps Engineer,Accenture,Seattle,Finance,115000,Diploma
+JOB0515,"C++, Flask, JavaScript",9,Technical Lead,Amazon,New York,Finance,166000,"BTech, Masters"
+JOB0516,"Kubernetes, Tableau, CSS",1,Senior Software Engineer,IBM,Seattle,Finance,77000,"BTech, Masters"
+JOB0517,"Data Analysis, Django, Flask",2,Technical Lead,Cognizant,New York,Healthcare,73000,"Masters, BTech"
+JOB0518,"AWS, HTML, Docker, SQL, Excel",2,Data Engineer,IBM,Boston,Finance,89000,Diploma
+JOB0519,"Tableau, Node.js, AWS",6,Full Stack Developer,Accenture,Berlin,IT,134000,"Masters, BTech"
+JOB0520,"JavaScript, Java, Docker",2,Lead DevOps Engineer,Microsoft,New York,Healthcare,94000,"BTech, Masters"
